@@ -9,15 +9,10 @@ describe(' Route', () => {
       .expect(200)
       .then((response) => {
         expect(response.body).toEqual(
-         expect.objectContaining({
-             name: "Fredrik"
-         })
-          )});
+          expect.objectContaining({
+            name: 'Fredrik',
+          })
+        );
       });
-  
-
-
-    });
-
-
- 
+  });
+});
