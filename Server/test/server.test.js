@@ -47,4 +47,26 @@ describe(' Route', () => {
         expect.objectContaining(expect.arrayContaining(expect.object));
       });
   });
-});
+
+  it('should update an item in the database', () => {
+    return request(server)
+      .put('/version1/item/619f5162f968289dbca37112')
+      .send({
+        price: 600,
+        inStorage: 10,
+        amountSold: 1000,
+        })
+        .expect('Content-Type', /json/)
+        .expect(202)
+        .then((response) => {
+          expect.objectContaining({
+            name: 'GPU',
+            image: '../assets/placeholder_image.png',
+            price: 600,
+            inStorage: 10,
+            amountSold: 1000,
+          });
+        });
+      });
+
+    });

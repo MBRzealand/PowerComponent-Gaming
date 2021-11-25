@@ -26,4 +26,25 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.put('/:id', async (req, res, next) => {
+  try {
+    const {id: itemId} = req.params;
+    const item = await ItemScheme.findOneAndUpdate({_id: itemId}, req.body, {
+      new:true, runValidators: true,
+    });
+
+    if(!item){
+      return res.status(404).json({
+        message: 'Item could not be found',
+      })
+    }
+    
+    res.status(202).json({ item });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 module.exports = router;
