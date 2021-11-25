@@ -1,4 +1,5 @@
 const request = require('supertest');
+const { $where } = require('../model/itemscheme');
 const server = require('../server');
 
 describe(' Route', () => {
@@ -50,7 +51,7 @@ describe(' Route', () => {
 
   it('should update an item in the database', () => {
     return request(server)
-      .put('/version1/item/619f5162f968289dbca37112')
+      .put('/version1/item/619f7561afdfb0e07f7a0cc5')
       .send({
         price: 600,
         inStorage: 10,
@@ -68,5 +69,38 @@ describe(' Route', () => {
           });
         });
       });
+
+     
+  it('should delete an item in the database', () => {
+     
+    request(server)
+      .post('/version1/item')
+      .send({
+        name: 'GPU',
+        price: 500,
+        inStorage: 1,
+        amountSold: 10000,
+      })
+      .then((response) => {
+       const idForDelete = response.body.item._id
+       return request(server)
+      .delete(`/version1/item/${idForDelete}`)
+        .expect(410)
+        .then((response) => {
+          expect.objectContaining({
+            name: 'GPU',
+            image: '../assets/placeholder_image.png',
+            price: 500,
+            inStorage: 1,
+            amountSold: 10000,
+          });
+        });
+      });
+          
+      });
+
+
+    
+
 
     });

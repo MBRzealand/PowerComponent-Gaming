@@ -47,4 +47,27 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const {id: itemId} = req.params;
+    const item = await ItemScheme.findOneAndDelete({_id: itemId});
+
+    if(!item){
+      return res.status(404).json({
+        message: 'Item could not be found',
+      })
+    }
+    
+    res.status(410).json({ item });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+
+
+
 module.exports = router;
