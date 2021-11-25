@@ -18,23 +18,33 @@ describe(' Route', () => {
 
   it('should create an item in the database', () => {
     return request(server)
-    .post('/version1/item')
-    .send({
-      name: "GPU",
-      price: 500,
-      inStorage: 1,
-      amountSold: 100,
-    })
-    .expect('Content-Type', /json/)
-    .expect(201)
-    .then((response) => {
-      expect.objectContaining({
-        name: "GPU",
-        image: "../assets/placeholder_image.png",
+      .post('/version1/item')
+      .send({
+        name: 'GPU',
         price: 500,
         inStorage: 1,
         amountSold: 100,
       })
-    })
-  })
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .then((response) => {
+        expect.objectContaining({
+          name: 'GPU',
+          image: '../assets/placeholder_image.png',
+          price: 500,
+          inStorage: 1,
+          amountSold: 100,
+        });
+      });
+  });
+
+  it('should get all items from the database', () => {
+    return request(server)
+      .get('/version1/item')
+      .expect('Content-Type', /json/)
+      .expect(200)
+      .then((response) => {
+        expect.objectContaining(expect.arrayContaining(expect.object));
+      });
+  });
 });

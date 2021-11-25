@@ -1,28 +1,25 @@
 const express = require('express');
 const defaultRoutes = require('./routes/defaultRoute');
 const items = require('./routes/items');
-const connectDB = require('./database/connect')
+const connectDB = require('./database/connect');
 require('dotenv').config();
 const app = express();
-
-
 
 app.use(express.json());
 app.use('/version1', defaultRoutes);
 app.use('/version1/item', items);
 
-const start = async() => {
+const start = async () => {
   try {
     await connectDB(process.env.DB_URL);
 
     app.listen(process.env.PORT, () => {
-      console.log('Server is running..');
+      console.log(`Server is running on port --> ${process.env.PORT}`);
     });
-
-  }catch (e) {
-    console.log(e)
+  } catch (error) {
+    console.log(error);
   }
-}
+};
 
-start()
+start();
 module.exports = app;
