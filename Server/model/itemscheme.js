@@ -9,7 +9,7 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     default: '../assets/placeholder_image.png',
   },
-  specifications: [{ specification: String, value: String }],
+  specifications: { type:Array},
 
   price: {
     type: Number,
