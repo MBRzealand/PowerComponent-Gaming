@@ -18,7 +18,7 @@ describe(' Route', () => {
 
   it('should create an item in the database', () => {
     return request(server)
-    .post('/version1/createItem')
+    .post('/version1/item')
     .send({
       name: "GPU",
       price: 500,
