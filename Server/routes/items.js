@@ -67,6 +67,25 @@ router.delete('/:id', async (req, res, next) => {
   }
 });
 
+router.get('/:id', async (req, res, next) => {
+  try {
+    const {id: itemId} = req.params;
+    const item = await ItemScheme.findOne({_id: itemId});
+
+    if(!item){
+      return res.status(404).json({
+        message: 'Item could not be found',
+      })
+    }
+
+    res.status(200).json({ item });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
 
 
 

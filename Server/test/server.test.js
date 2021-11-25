@@ -100,7 +100,22 @@ describe(' Route', () => {
       });
 
 
-    
+    it('should find a specific item in the database', () => {
+        return request(server)
+            .get('/version1/item/619f7561afdfb0e07f7a0cc5')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then((response) => {
+                expect.objectContaining({
+                    name: 'GPU',
+                    image: '../assets/placeholder_image.png',
+                    price: 600,
+                    inStorage: 10,
+                    amountSold: 1000,
+                });
+            });
+    });
+
 
 
     });
