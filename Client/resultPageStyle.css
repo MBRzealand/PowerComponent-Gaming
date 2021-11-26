@@ -1,0 +1,48 @@
+body{
+    background-color:black;
+   
+}
+
+.card{
+    background-color:#161616;
+    margin: 0.5VW;
+    color: white;
+   padding: 1%;
+    
+}
+
+#resultsBox{
+    display: flex; 
+    flex-direction: row;
+    max-width : 80vw;
+    flex-wrap: wrap;
+}
+
+#searchDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+#resultsContainer{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+ 
+
+}
+
+
+#searchButton{
+    border-radius: 2px;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.404);
+      margin-left: 1%;
+      box-shadow: none;
+      border: none;
+}
+
+.productImage{
+    width: 22vw;
+}
