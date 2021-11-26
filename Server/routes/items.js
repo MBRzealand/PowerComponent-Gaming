@@ -17,6 +17,7 @@ router.post('/', async function (req, res, next) {
 
 router.get('/', async (req, res, next) => {
   try {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     const items = await ItemScheme.find({});
     res.status(200).json({ items });
   } catch (error) {

@@ -1,0 +1,23 @@
+#centerContainer {
+    display: flex;
+    height: fit-content;
+    width: 60%;
+    flex-wrap: wrap;
+    margin: auto;
+    border: 5px;
+    border-style: dashed;
+}
+
+body {
+    background-color: #333333;
+}
+
+.title {
+    color: #eeeeee;
+}
+
+#itemContainerDiv {
+    width: 32%;
+    height: 450px;
+    margin: 0.5%;
+}
