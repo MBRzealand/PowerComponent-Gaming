@@ -20,4 +20,24 @@ body {
     width: 32%;
     height: 450px;
     margin: 0.5%;
+    background-color: #666666;
+}
+
+.cardImageContainer {
+    width: 90%;
+    height: 45%;
+    background-color: white;
+    position: center;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.cardImage {
+    width: auto;
+    height: auto;
+}
+
+.cardItemStorage {
+    width: 25%;
+    height: 5%;
 }
