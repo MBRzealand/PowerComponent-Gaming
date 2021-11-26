@@ -4,6 +4,7 @@ const ItemScheme = require('../model/itemscheme');
 
 router.get('/:searchQuery', async (req, res, next) => {
   try {
+
     const { searchQuery: itemQuery } = req.params;
 
     const itemListFromName = await ItemScheme.find({ name: itemQuery });
@@ -37,6 +38,7 @@ router.get('/:searchQuery', async (req, res, next) => {
       specifications: itemListFromSpecifications,
     };
 
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.status(200).json({ foundElements });
   } catch (error) {
     res.status(500).json({
