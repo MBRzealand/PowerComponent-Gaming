@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #333333;
+    background-color: black;
 }
 
 .title {
@@ -20,21 +20,21 @@ body {
     width: 32%;
     height: 450px;
     margin: 0.5%;
-    background-color: #666666;
+    color: white;
+    padding: 1%;
+    background-color: #161616;
 }
 
 .cardImageContainer {
     width: 90%;
     height: 45%;
-    background-color: white;
     position: center;
     margin: auto;
     margin-bottom: 5%;
 }
 
 .cardImage {
-    width: auto;
-    height: auto;
+    width: 22vw;
 }
 
 .cardItemStorage {

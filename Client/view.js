@@ -33,7 +33,7 @@ let itemCard = (item) => {
         itemImageContainer.setAttribute('class', "cardImageContainer");
 
     const itemImage = document.createElement('img');
-        itemImage.scr = "assets/placeholder_image.png";
+        itemImage.scr = "./assets/placeholder_image.png";
         itemImage.setAttribute('class', "cardImage");
     
     const itemPriceContainer = document.createElement('h5');
@@ -118,7 +118,7 @@ dropdownSortPriceBtn.addEventListener('click', sortForPrice);
 const sortForName = () => {
 
     // Sort Array
-    if (sortNameAtoZ) {
+    if (sortNameAToZ) {
         itemsArray.sort(function(a, b) {
             a = a.name.toLowerCase();
             b = b.name.toLowerCase();
@@ -127,7 +127,7 @@ const sortForName = () => {
         dropdownSortNameBtn.innerHTML = "Navn &#11015";
         dropdownSortAmountSoldBtn.innerHTML = "Antal solgt";
         dropdownSortPriceBtn.innerHTML = "Pris";
-        sortNameAtoZ = false;
+        sortNameAToZ = false;
     } else {
         itemsArray.sort(function(a, b) {
             a = a.name.toLowerCase();
@@ -137,7 +137,7 @@ const sortForName = () => {
         dropdownSortNameBtn.innerHTML = "Navn &#11014";
         dropdownSortAmountSoldBtn.innerHTML = "Antal solgt";
         dropdownSortPriceBtn.innerHTML = "Pris";
-        sortNameAtoZ = true;
+        sortNameAToZ = true;
     }
     
     // Clear HTML container
