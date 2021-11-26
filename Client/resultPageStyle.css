@@ -9,12 +9,16 @@ body{
     color: white;
    padding: 1%;
     
+   max-width : 23%;
+    
+}
+#resultsBox{
+    max-width: 70vw;
 }
 
-#resultsBox{
-    display: flex; 
+.specificationHolder{
+    display: flex;
     flex-direction: row;
-    max-width : 80vw;
     flex-wrap: wrap;
 }
 
@@ -23,16 +27,28 @@ body{
     align-items: center;
     justify-content: center;
     
-
 }
 #resultsContainer{
-    display: flex; 
+    display: flex;
     justify-content: center;
     align-items: center;
- 
 
 }
 
+.line1{ 
+     display: flex;
+     justify-content: center;
+    background-color:#212529;
+    height: 50px;
+    font-size: 200%;
+    align-items: center;
+   color: white;
+   padding: 2%;
+}
+
+nav{
+    margin-bottom: 0.5%;
+}
 
 #searchButton{
     border-radius: 2px;
@@ -44,5 +60,5 @@ body{
 }
 
 .productImage{
-    width: 22vw;
+    max-width: fit-content;
 }

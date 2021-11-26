@@ -26,7 +26,7 @@ describe(' Route', () => {
         price: 500,
         inStorage: 1,
         amountSold: 100,
-        specifications :[ { 'Hardware' : 'Hardware' }, { 'Software' : 'Software' }],
+        specifications :[ { 'Hardware' : 'Hardware' }, { 'Software' : 'Software' },{'pik' : 'pik'}],
         categories : ["Hardware" , "Software"] 
       })
       .expect('Content-Type', /json/)
