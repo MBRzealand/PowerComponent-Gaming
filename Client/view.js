@@ -53,11 +53,12 @@ let itemCard = (item) => {
     const itemAmountSoldContainer = document.createElement('p');
         itemAmountSoldContainer.innerHTML = "Antal solgt: " + item.amountSold;
 
-    const itemCategoriesContainer = document.createElement('p');
-        itemCategoriesContainer.innerHTML = "Kategorier";
+    const itemSpecificationContainer = document.createElement('ul');
+        let specificationNode = document.createTextNode(item.specifications[0].Hardware);
+        let node = document.createElement('li');
+        node.appendChild(specificationNode)
+        itemSpecificationContainer.appendChild(node);
 
-    const itemSpecificationContainer = document.createElement('p');
-        itemSpecificationContainer.innerHTML = "Specifikationer";
         
     // Card append design
     itemContainerDiv.appendChild(itemImageContainer);
@@ -65,7 +66,6 @@ let itemCard = (item) => {
     itemContainerDiv.appendChild(itemNameContainer);
     itemContainerDiv.appendChild(itemStorageContainer);
     itemContainerDiv.appendChild(itemAmountSoldContainer);
-    itemContainerDiv.appendChild(itemCategoriesContainer);
     itemContainerDiv.appendChild(itemSpecificationContainer);
     itemContainerDiv.appendChild(itemPriceContainer);
 
