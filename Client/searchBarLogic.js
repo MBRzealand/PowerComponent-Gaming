@@ -48,7 +48,7 @@ let generateCards =  (response) => {
     console.log(nameArrayLength)
 
     for (let i = 0; i < nameArrayLength; i++) {
-        const productName = document.createElement("h4")
+        const productName = document.createElement("h3")
         const name = document.createTextNode(response.foundElements.name[i].name)
         productName.appendChild(name)
 
@@ -71,25 +71,13 @@ let generateCards =  (response) => {
             productSpecifications.appendChild(specificationKeyValuePair)
         }
 
-        const categoriesTitle = document.createElement("h4")
-        const title2 = document.createTextNode("Categories:")
-        categoriesTitle.appendChild(title2)
+       
 
-        const productCategories = document.createElement("p")
+ 
 
-        for (let j = 0; j < response.foundElements.name[i].categories.length; j++) {
-            const categories = document.createTextNode(`${response.foundElements.name[i].categories[j]}`)
-            const breakpoint = document.createElement("br")
-            productCategories.appendChild(categories)
-            productCategories.appendChild(breakpoint)
-        }
-
-        const priceTitle = document.createElement("h4")
-        const title3 = document.createTextNode("Price:")
-        priceTitle.appendChild(title3)
-
-        const productPrice = document.createElement("p")
+        const productPrice = document.createElement("button")
         const price = document.createTextNode(`${response.foundElements.name[i].price} kr`)
+        productPrice.setAttribute('class','price')
         productPrice.appendChild(price)
 
 
@@ -106,9 +94,7 @@ let generateCards =  (response) => {
         productCard.appendChild(productName)
         productCard.appendChild(specificationTitle)
         productCard.appendChild(productSpecifications)
-        productCard.appendChild(categoriesTitle)
-        productCard.appendChild(productCategories)
-        productCard.appendChild(priceTitle)
+  
         productCard.appendChild(productPrice)
         productCard.setAttribute('class',"card")
 
@@ -125,7 +111,7 @@ let generateCards =  (response) => {
     const specificationsArrayLength = (response.foundElements.specifications.length);
 
     for (let i = 0; i < specificationsArrayLength; i++) {
-        const productName = document.createElement("h4")
+        const productName = document.createElement("h3")
         const name = document.createTextNode(response.foundElements.specifications[i].name)
         productName.appendChild(name)
 
@@ -148,25 +134,13 @@ let generateCards =  (response) => {
             productSpecifications.appendChild(specificationKeyValuePair)
         }
 
-        const categoriesTitle = document.createElement("h4")
-        const title2 = document.createTextNode("Categories:")
-        categoriesTitle.appendChild(title2)
 
-        const productCategories = document.createElement("p")
 
-        for (let j = 0; j < response.foundElements.specifications[i].categories.length; j++) {
-            const categories = document.createTextNode(`${response.foundElements.specifications[i].categories[j]}`)
-            const breakpoint = document.createElement("br")
-            productCategories.appendChild(categories)
-            productCategories.appendChild(breakpoint)
-        }
-
-        const priceTitle = document.createElement("h4")
-        const title3 = document.createTextNode("Price:")
-        priceTitle.appendChild(title3)
+      
 
         const productPrice = document.createElement("p")
         const price = document.createTextNode(`${response.foundElements.specifications[i].price} kr`)
+        productPrice.setAttribute('class','price')
         productPrice.appendChild(price)
 
 
@@ -186,9 +160,7 @@ let generateCards =  (response) => {
         productCard.appendChild(productName)
         productCard.appendChild(specificationTitle)
         productCard.appendChild(productSpecifications)
-        productCard.appendChild(categoriesTitle)
-        productCard.appendChild(productCategories)
-        productCard.appendChild(priceTitle)
+      
         productCard.appendChild(productPrice)
         productCard.setAttribute('class',"card")
         specificationsDiv.appendChild(productCard)
@@ -202,7 +174,7 @@ let generateCards =  (response) => {
 
 
     for (let i = 0; i < categoriesArrayLength; i++) {
-        const productName = document.createElement("h4")
+        const productName = document.createElement("h3")
         const name = document.createTextNode(response.foundElements.categories[i].name)
         productName.appendChild(name)
 
@@ -225,25 +197,12 @@ let generateCards =  (response) => {
             productSpecifications.appendChild(specificationKeyValuePair)
         }
 
-        const categoriesTitle = document.createElement("h4")
-        const title2 = document.createTextNode("Categories:")
-        categoriesTitle.appendChild(title2)
-
-        const productCategories = document.createElement("p")
-
-        for (let j = 0; j < response.foundElements.categories[i].categories.length; j++) {
-            const categories = document.createTextNode(`${response.foundElements.categories[i].categories[j]}`)
-            const breakpoint = document.createElement("br")
-            productCategories.appendChild(categories)
-            productCategories.appendChild(breakpoint)
-        }
-
-        const priceTitle = document.createElement("h4")
-        const title3 = document.createTextNode("Price:")
-        priceTitle.appendChild(title3)
+        
+ 
 
         const productPrice = document.createElement("p")
         const price = document.createTextNode(`${response.foundElements.categories[i].price} kr`)
+        productPrice.setAttribute('class','price')
         productPrice.appendChild(price)
 
 
@@ -262,9 +221,7 @@ let generateCards =  (response) => {
         productCard.appendChild(productName)
         productCard.appendChild(specificationTitle)
         productCard.appendChild(productSpecifications)
-        productCard.appendChild(categoriesTitle)
-        productCard.appendChild(productCategories)
-        productCard.appendChild(priceTitle)
+    
         productCard.appendChild(productPrice)
         productCard.setAttribute('class',"card")
         categoriesDiv.appendChild(productCard)

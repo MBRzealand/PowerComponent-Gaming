@@ -7,18 +7,19 @@ body{
     background-color:#161616;
     margin: 0.5VW;
     color: white;
-   padding: 1%;
-    
+   padding: 1%; 
+   min-height: 56%;
+   
    max-width : 23%;
     
 }
 #resultsBox{
-    max-width: 70vw;
+     max-width: 80vw;
 }
 
 .specificationHolder{
     display: flex;
-    flex-direction: row;
+     flex-direction: row;
     flex-wrap: wrap;
 }
 
@@ -35,15 +36,62 @@ body{
 
 }
 
+.price{
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.404);
+    
+    box-sizing: border-box;
+    text-shadow: 1px 1px 3px #000;
+    color: white;
+    border: solid rgba(119, 0, 0, 0.404);
+    margin-top: 15%;
+    margin-bottom: 2%;
+
+
+    
+
+    border-radius: 7px;
+    padding-bottom: 2%;
+    font-size: x-large;
+}
+.price:active{
+    background-color: rgb(73, 14, 14);
+    
+}
+
+p{
+    margin: 0;
+}
+
 .line1{ 
      display: flex;
-     justify-content: center;
+   
     background-color:#212529;
     height: 50px;
     font-size: 200%;
-    align-items: center;
+    padding-left:1% ;
+
+
+
+
    color: white;
-   padding: 2%;
+   min-width: 80vw;
+   border-radius: 5px;
+   font-weight: bold;
+}
+
+
+
+h4{
+    margin-top: 5%;
+    font-weight: bold;
+    font-size: large;
+    
+}
+h3{
+   font-size:x-large; 
+   font-weight: bold;
+   margin-bottom: 2%;
 }
 
 nav{
