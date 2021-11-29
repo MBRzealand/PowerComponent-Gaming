@@ -1,6 +1,6 @@
 #centerContainer {
     display: flex;
-    height: fit-content;
+ 
     width: 60%;
     flex-wrap: wrap;
     margin: auto;
@@ -16,9 +16,9 @@ body {
     color: #eeeeee;
 }
 
-#itemContainerDiv {
-    width: 32%;
-    height: 550px;
+.itemContainerDiv {
+    width: 24%;
+    min-height: 500px;
     margin: 0.5%;
     color: white;
     padding: 1%;

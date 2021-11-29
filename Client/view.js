@@ -21,10 +21,28 @@ const createCatalouge = async () => {
 }
 createCatalouge();
 
+let displaySpecifications = (specificationsObjectArray) => {
+
+    let specificationsArray = [];
+
+    specificationsObjectArray.forEach((specifications)=>{
+        for(key in specifications){
+            if (key != '_id') {
+            specificationsArray.push(key)
+            specificationsArray.push(specifications[key])
+            }
+        }
+    })
+
+    console.log(specificationsArray)
+
+    return specificationsArray;
+}
+
 let itemCard = (item) => {
 
     const itemContainerDiv = document.createElement('div');
-        itemContainerDiv.id = "itemContainerDiv";
+        itemContainerDiv.setAttribute('class', "itemContainerDiv");
         
     const itemNameContainer = document.createElement('h4');
         itemNameContainer.innerHTML = item.name;
@@ -54,10 +72,15 @@ let itemCard = (item) => {
         itemAmountSoldContainer.innerHTML = "Antal solgt: " + item.amountSold;
 
     const itemSpecificationContainer = document.createElement('ul');
-        let specificationNode = document.createTextNode(item.specifications[0].Hardware);
-        let node = document.createElement('li');
-        node.appendChild(specificationNode)
-        itemSpecificationContainer.appendChild(node);
+        for (let j = 0; j < item.specifications.length*2; j+=2) {
+
+            let specificationList = displaySpecifications(item.specifications)
+
+            let specificationNode = document.createTextNode(`${specificationList[j]}: ${specificationList[j+1]}`);
+            let node = document.createElement('li');
+            node.appendChild(specificationNode)
+            itemSpecificationContainer.appendChild(node);
+        }
 
         
     // Card append design
