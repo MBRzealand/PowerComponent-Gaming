@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+
+nav {
+    margin-bottom: 0.5%;
+}
+
+#searchButton {
+    border-radius: 2px;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.404);
+    margin-left: 1%;
+    box-shadow: none;
+    border: none;
+}
+
+#searchDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
