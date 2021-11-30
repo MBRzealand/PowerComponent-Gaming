@@ -1,5 +1,6 @@
 const request = require('supertest');
 const { $where } = require('../model/itemscheme');
+const { response } = require('../server');
 const server = require('../server');
 
 describe(' Route', () => {
@@ -25,6 +26,8 @@ describe(' Route', () => {
         price: 500,
         inStorage: 1,
         amountSold: 100,
+        specifications :[ { 'Hardware' : 'Hardware' }, { 'Software' : 'Software' },{'Fredrik':'Fredrik'},{'Skærm':'LED'},{'Tommer':'57'}],
+        categories : ["Hardware" , "Software"] 
       })
       .expect('Content-Type', /json/)
       .expect(201)
@@ -51,7 +54,7 @@ describe(' Route', () => {
 
   it('should update an item in the database', () => {
     return request(server)
-      .put('/version1/item/619f7561afdfb0e07f7a0cc5')
+      .put('/version1/item/619f902dc00f4a18a9a7de63')
       .send({
         price: 600,
         inStorage: 10,
@@ -102,7 +105,7 @@ describe(' Route', () => {
 
     it('should find a specific item in the database', () => {
         return request(server)
-            .get('/version1/item/619f7561afdfb0e07f7a0cc5')
+            .get('/version1/item/619f902dc00f4a18a9a7de63')
             .expect('Content-Type', /json/)
             .expect(200)
             .then((response) => {
@@ -115,7 +118,17 @@ describe(' Route', () => {
                 });
             });
     });
-
-
-
     });
+
+      describe('Search Function', () => {
+
+        it('Should find all elements based on name', () => {
+          return request(server)
+            .get('/version1/search/Hardware')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .then((response) => {
+              expect.objectContaining(expect.arrayContaining(expect.object))
+            })
+        })
+      })
