@@ -26,15 +26,15 @@ body {
 }
 
 .cardImageContainer {
-    width: 90%;
-    height: 45%;
+    max-width: 90%;
+    max-height: 45%;
     position: center;
     margin: auto;
     margin-bottom: 5%;
 }
 
 .cardImage {
-    width: 22vw;
+    max-width: 100%;
 }
 
 .cardItemStorage {

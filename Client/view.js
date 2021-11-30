@@ -10,7 +10,7 @@ const createCatalouge = async () => {
 
     itemsArray = await itemsJSON.items;
 
-    console.log(itemsArray);
+ 
 
     for (let itemIndex = 0; itemIndex < itemsArray.length; itemIndex++) {
         const item = itemsArray[itemIndex];
@@ -28,13 +28,13 @@ let displaySpecifications = (specificationsObjectArray) => {
     specificationsObjectArray.forEach((specifications)=>{
         for(key in specifications){
             if (key != '_id') {
-            specificationsArray.push(key)
-            specificationsArray.push(specifications[key])
+                specificationsArray.push(key)
+                specificationsArray.push(specifications[key])
             }
         }
     })
 
-    console.log(specificationsArray)
+    
 
     return specificationsArray;
 }
@@ -51,7 +51,7 @@ let itemCard = (item) => {
         itemImageContainer.setAttribute('class', "cardImageContainer");
 
     const itemImage = document.createElement('img');
-        itemImage.scr = "./assets/placeholder_image.png";
+        itemImage.src = item.image;
         itemImage.setAttribute('class', "cardImage");
     
     const itemPriceContainer = document.createElement('h5');
@@ -84,8 +84,8 @@ let itemCard = (item) => {
 
         
     // Card append design
+    itemImageContainer.appendChild(itemImage); 
     itemContainerDiv.appendChild(itemImageContainer);
-    itemImageContainer.appendChild(itemImage);
     itemContainerDiv.appendChild(itemNameContainer);
     itemContainerDiv.appendChild(itemStorageContainer);
     itemContainerDiv.appendChild(itemAmountSoldContainer);
@@ -97,7 +97,7 @@ let itemCard = (item) => {
 }
 
 let sortPriceBigToSmall = false;
-let sortNameAToZ = true;
+let sortNameAToZ = true; 
 let sortAmountSoldBigToSmall = true;
 const dropdownSortPriceBtn = document.getElementById('priceSortBtn');
 const dropdownSortNameBtn = document.getElementById('nameSortBtn');
