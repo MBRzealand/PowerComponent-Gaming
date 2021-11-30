@@ -29,17 +29,18 @@ router.get('/', async (req, res, next) => {
 
 router.put('/:id', async (req, res, next) => {
   try {
-    const {id: itemId} = req.params;
-    const item = await ItemScheme.findOneAndUpdate({_id: itemId}, req.body, {
-      new:true, runValidators: true,
+    const { id: itemId } = req.params;
+    const item = await ItemScheme.findOneAndUpdate({ _id: itemId }, req.body, {
+      new: true,
+      runValidators: true,
     });
 
-    if(!item){
+    if (!item) {
       return res.status(404).json({
         message: 'Item could not be found',
-      })
+      });
     }
-    
+
     res.status(202).json({ item });
   } catch (error) {
     res.status(500).json({
@@ -48,18 +49,17 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
-
 router.delete('/:id', async (req, res, next) => {
   try {
-    const {id: itemId} = req.params;
-    const item = await ItemScheme.findOneAndDelete({_id: itemId});
+    const { id: itemId } = req.params;
+    const item = await ItemScheme.findOneAndDelete({ _id: itemId });
 
-    if(!item){
+    if (!item) {
       return res.status(404).json({
         message: 'Item could not be found',
-      })
+      });
     }
-    
+
     res.status(410).json({ item });
   } catch (error) {
     res.status(500).json({
@@ -70,13 +70,13 @@ router.delete('/:id', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const {id: itemId} = req.params;
-    const item = await ItemScheme.findOne({_id: itemId});
+    const { id: itemId } = req.params;
+    const item = await ItemScheme.findOne({ _id: itemId });
 
-    if(!item){
+    if (!item) {
       return res.status(404).json({
         message: 'Item could not be found',
-      })
+      });
     }
 
     res.status(200).json({ item });
@@ -86,8 +86,5 @@ router.get('/:id', async (req, res, next) => {
     });
   }
 });
-
-
-
 
 module.exports = router;

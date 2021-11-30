@@ -4,7 +4,6 @@ const ItemScheme = require('../model/itemscheme');
 
 router.get('/:searchQuery', async (req, res, next) => {
   try {
-
     const { searchQuery: itemQuery } = req.params;
 
     const itemListFromName = await ItemScheme.find({ name: itemQuery });

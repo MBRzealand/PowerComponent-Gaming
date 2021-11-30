@@ -1,7 +1,7 @@
 const express = require('express');
 const defaultRoutes = require('./routes/defaultRoute');
 const items = require('./routes/items');
-const search = require('./routes/search')
+const search = require('./routes/search');
 const connectDB = require('./database/connect');
 require('dotenv').config();
 const app = express();
@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use('/version1', defaultRoutes);
 app.use('/version1/item', items);
-app.use('/version1/search', search)
+app.use('/version1/search', search);
 
 const start = async () => {
   try {

@@ -1,43 +1,51 @@
 #centerContainer {
-    display: flex;
- 
-    width: 60%;
-    flex-wrap: wrap;
-    margin: auto;
-    border: 5px;
-    border-style: dashed;
+  display: flex;
+
+  width: 60%;
+  flex-wrap: wrap;
+  margin: auto;
+  border: 5px;
+  border-style: dashed;
 }
 
 body {
-    background-color: black;
+  background-color: black;
 }
 
 .title {
-    color: #eeeeee;
+  color: #eeeeee;
+}
+
+#searchButton {
+  border-radius: 2px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  box-shadow: none;
+  border: none;
 }
 
 .itemContainerDiv {
-    width: 24%;
-    min-height: 500px;
-    margin: 0.5%;
-    color: white;
-    padding: 1%;
-    background-color: #161616;
+  width: 24%;
+  min-height: 500px;
+  margin: 0.5%;
+  color: white;
+  padding: 1%;
+  background-color: #161616;
 }
 
 .cardImageContainer {
-    max-width: 90%;
-    max-height: 45%;
-    position: center;
-    margin: auto;
-    margin-bottom: 5%;
+  max-width: 90%;
+  max-height: 45%;
+  position: center;
+  margin: auto;
+  margin-bottom: 5%;
 }
 
 .cardImage {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .cardItemStorage {
-    width: 25%;
-    height: 5%;
+  width: 25%;
+  height: 5%;
 }
