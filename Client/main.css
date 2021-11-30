@@ -1,0 +1,43 @@
+#centerContainer {
+    display: flex;
+ 
+    width: 60%;
+    flex-wrap: wrap;
+    margin: auto;
+    border: 5px;
+    border-style: dashed;
+}
+
+body {
+    background-color: black;
+}
+
+.title {
+    color: #eeeeee;
+}
+
+.itemContainerDiv {
+    width: 24%;
+    min-height: 500px;
+    margin: 0.5%;
+    color: white;
+    padding: 1%;
+    background-color: #161616;
+}
+
+.cardImageContainer {
+    max-width: 90%;
+    max-height: 45%;
+    position: center;
+    margin: auto;
+    margin-bottom: 5%;
+}
+
+.cardImage {
+    max-width: 100%;
+}
+
+.cardItemStorage {
+    width: 25%;
+    height: 5%;
+}
