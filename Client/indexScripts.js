@@ -35,7 +35,9 @@ let itemCard = (item) => {
   const itemContainerDiv = document.createElement('div');
   itemContainerDiv.setAttribute('class', 'itemContainerDiv');
 
-  itemContainerDiv.addEventListener('click', goToProductPage(item._id));
+  itemContainerDiv.addEventListener('click', function () {
+    goToProductPage(item._id);
+  });
 
   const itemNameContainer = document.createElement('h4');
   itemNameContainer.innerHTML = item.name;
