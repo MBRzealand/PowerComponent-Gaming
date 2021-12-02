@@ -2,6 +2,8 @@ const searchInput = document.getElementById('searchInput');
 const productName = document.getElementById('productName');
 const productDescription = document.getElementById('productDescription');
 const productPrice = document.getElementById('price');
+const productStorage = document.getElementById('productStorage');
+const productStorageDiv = document.getElementById('productStorageDiv');
 const productSpecificationsDIV = document.getElementById(
   'productSpecifications'
 );
@@ -43,23 +45,40 @@ let displaySpecifications = (specificationsObjectArray) => {
 };
 
 let generateProductPage = (product) => {
+  // Image code
+  const itemImage = document.createElement('img');
+  itemImage.src = product.item.image;
+  itemImage.setAttribute('class', 'cardImage');
+  document.getElementById('productImage').appendChild(itemImage);
+  
+  // Product content code
+  
   productName.innerText = product.item.name;
   if (product.item.description) {
     productDescription.innerText = product.item.description;
   }
-  productPrice.innerText = product.item.price;
+  productPrice.innerText = product.item.price + ",-";
+
+  let itemStorageAmount = product.item.inStorage;
+  if (itemStorageAmount < 5) {
+    productStorageDiv.style.backgroundColor = 'red';
+  } else if (itemStorageAmount < 10) {
+    productStorageDiv.style.backgroundColor = 'yellow';
+  } else {
+    productStorageDiv.style.backgroundColor = 'green';
+  }
+  productStorage.innerHTML = itemStorageAmount + " stk. på lager";
+
+
+  // Specification code
+
   const itemSpecificationContainer = document.createElement('ul');
 
   for (let j = 0; j < product.item.specifications.length * 2; j += 2) {
     let specificationList = displaySpecifications(product.item.specifications);
     let pTag = document.createElement('p');
     pTag.innerHTML = `${specificationList[j]}: ${specificationList[j + 1]}`;
-    let specificationNode = document.createTextNode(
-      `${specificationList[j]}: ${specificationList[j + 1]}`
-    );
-
-    let node = document.createElement('li');
-    node.appendChild(specificationNode);
+    
     itemSpecificationContainer.appendChild(pTag);
     let div = document.getElementById('specificationDiv');
     div.appendChild(itemSpecificationContainer);

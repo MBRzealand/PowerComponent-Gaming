@@ -25,3 +25,98 @@ nav {
 #specificationDiv {
   color: white;
 }
+
+#pageContent {
+  width: 60%;
+  margin: auto;
+  margin-top: 3%;
+}
+
+#pageContentRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
+}
+
+.cardImage {
+  max-width: 100%;
+}
+
+#productImage {
+  max-width: 25%;
+  background-color: #161616;
+  margin-right: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#productContent {
+  min-width: 72%;
+  background-color: #161616;
+  padding-top: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#productContentHeaderRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2%;
+  padding-left: 10px;
+}
+
+#productName{
+  font-size: x-large;
+}
+
+#price {
+  margin-left: auto;
+  margin-right: 0%;
+  font-size: x-large;
+  padding-right: 10px;
+}
+
+#productContentStorageRow {
+  display: flex;
+  flex-direction: row;
+  margin: 15px 10px 0px 10px;
+  padding-left: 10px;
+  height: fit-content;
+}
+
+#productStorageDiv {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+#productStorage {
+  margin-bottom: 0px;
+}
+
+#btnAddToBasket {
+  background-color:rgba(255, 0, 0, 0.404);
+  border: none;
+  width: 97%;
+  margin: 10px auto 10px auto;
+}
+
+#productDescription {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#productSpecifications {
+  background-color: #161616;
+  padding-bottom: 1%;
+}
+
+#specificationsTitle {
+  background-color: #3c3b3b;
+  font-size: x-large;
+  border-radius: 5px;
+  padding: 1px 0px 0px 10px;
+}
