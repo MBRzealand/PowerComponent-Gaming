@@ -105,6 +105,11 @@ let generateCards = (response) => {
     productCard.setAttribute('class', 'card');
 
     namesDiv.appendChild(productCard);
+
+    productCard.addEventListener('click', function () {
+      goToProductPage(response.foundElements.name[i]._id);
+    });
+
   }
 
   const specificationsArrayLength =
@@ -163,6 +168,10 @@ let generateCards = (response) => {
     productCard.appendChild(productPrice);
     productCard.setAttribute('class', 'card');
     specificationsDiv.appendChild(productCard);
+
+    productCard.addEventListener('click', function () {
+      goToProductPage(response.foundElements.specifications[i]._id);
+    });
   }
 
   const categoriesArrayLength = response.foundElements.categories.length;
@@ -220,6 +229,10 @@ let generateCards = (response) => {
     productCard.appendChild(productPrice);
     productCard.setAttribute('class', 'card');
     categoriesDiv.appendChild(productCard);
+
+    productCard.addEventListener('click', function () {
+      goToProductPage(response.foundElements.categories[i]._id);
+    });
   }
 
   let line1 = document.createElement('div');
@@ -240,4 +253,11 @@ let generateCards = (response) => {
   resultsDiv.appendChild(specificationsDiv);
   resultsDiv.appendChild(line3);
   resultsDiv.appendChild(categoriesDiv);
+
+};
+
+let goToProductPage = (itemID) => {
+  let url = new URL('http://localhost:5500/Client/productPage.html');
+  url.searchParams.append('itemID', itemID);
+  document.location = url;
 };
