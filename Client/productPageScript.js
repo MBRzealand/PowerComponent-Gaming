@@ -25,6 +25,8 @@ let getClickedElement = async () => {
 
         let product = await response.json();
 
+        generateProductPage(product)
+
 }
 
 
