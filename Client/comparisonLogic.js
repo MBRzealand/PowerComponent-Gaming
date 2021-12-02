@@ -1,30 +1,35 @@
 
 
-const listOfItems = [
-    {name:"GPU",
-    image:"../assets/placeholder_image.png",
-    specifications: [{Hardware: 'hardware'}, {mereHardware: 'merehardware'},{software: 'software'}],
-    price: 600,
-    inStorage:10,
-    amountSold: 1000,
-    categories: [],
-},
-    {name:"GPU",
-    image:"../assets/placeholder_image.png",
-    specifications: [{Hardware: 'hardware'},{lidtSoftware: 'lidtSoftware'}, {software: 'software'},{software2: 'software2'}, {software3: 'software3'}],
-    price: 600,
-    inStorage:10,
-    amountSold: 1000,
-    categories: [],
-},
-{name:"GPU",
-    image:"../assets/placeholder_image.png",
-    specifications: [{Hardware: 'hardware'},{lidtSoftware: 'lidtToast'}, {software: 'software'}],
-    price: 600,
-    inStorage:10,
-    amountSold: 1000,
-    categories: [],
-}];
+let listOfItems = [];
+
+const id = [
+  '619f91ad2cadb81e2bb248c2',
+  '619f902dc00f4a18a9a7de63',
+  '61a0a651ddddc7a1b288a361',
+  '61a0f32beae39f64a39f4309',
+  '61a4d8c49d3185de10ce5821',
+  '61a4dd2b4ff539de44db96ad',
+];
+
+async function getItems(id) {
+  let response = '';
+  response = await fetch(`http://localhost:3000/version1/item/${id}`);
+  let Json = await response.json().then((data) => {
+    return data;
+  });
+  return Json;
+}
+
+async function loop() {
+  for (let index = 0; index < id.length; index++) {
+    let item = await getItems(id[index]);
+    listOfItems.push(item.item);
+  }
+  pictureGenerator(listOfItems);
+  tableGenerator(listOfItems);
+}
+loop();
+console.log(listOfItems);
 
 const div = document.getElementById('centerContainer')
 
@@ -42,7 +47,6 @@ let pictureGenerator = (listOfItems) => {
 }
 
 let tableGenerator = (listOfItems)  => {
-  console.log(Object.keys(listOfItems[2].specifications[2]));
 
    let table = document.createElement("table");
 
@@ -70,15 +74,5 @@ let tableGenerator = (listOfItems)  => {
     newCell.appendChild(newText);  
     
   }};
-
-
-
-   
-
    div.appendChild(table);
-
-
-   
 }
-pictureGenerator(listOfItems);
-tableGenerator(listOfItems);
