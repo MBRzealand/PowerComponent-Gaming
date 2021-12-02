@@ -1,11 +1,10 @@
 #centerContainer {
   display: flex;
-
   width: 60%;
   flex-wrap: wrap;
   margin: auto;
-  border: 5px;
-  border-style: dashed;
+  margin-top: 2%;
+  padding: 2%;
 }
 
 body {
@@ -16,22 +15,31 @@ body {
   color: #eeeeee;
 }
 
+img{
+  margin: 2%;
+}
+
 
 
 table, th, td{
   width: 100%;
-  border: solid;
-  border-style: groove;
+  border: solid 2px #212529;
   color: white;
 }
 
 tr { 
   display: block;
   float: left; }
+
 th, td {
   display: block;
   white-space:pre; }
 
+th{ 
+  font-weight: bold;}
+
+
+   
 
 #searchButton {
   border-radius: 2px;

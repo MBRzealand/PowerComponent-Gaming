@@ -73,6 +73,11 @@ let itemCard = (item) => {
     node.appendChild(specificationNode);
     itemSpecificationContainer.appendChild(node);
   }
+  //global?
+  const compareBtn = document.createElement("button");
+  compareBtn.addEventListener('click', () => {
+    localStorage.setItem('item', item._id);
+  });
 
   // Card append design
   itemImageContainer.appendChild(itemImage);
@@ -82,6 +87,8 @@ let itemCard = (item) => {
   itemContainerDiv.appendChild(itemAmountSoldContainer);
   itemContainerDiv.appendChild(itemSpecificationContainer);
   itemContainerDiv.appendChild(itemPriceContainer);
+  itemContainerDiv.appendChild(compareBtn);
+
 
   return itemContainerDiv;
 };

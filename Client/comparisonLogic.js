@@ -3,9 +3,6 @@
 let listOfItems = [];
 
 const id = [
-  '619f91ad2cadb81e2bb248c2',
-  '619f902dc00f4a18a9a7de63',
-  '61a0a651ddddc7a1b288a361',
   '61a0f32beae39f64a39f4309',
   '61a4d8c49d3185de10ce5821',
   '61a4dd2b4ff539de44db96ad',
@@ -14,9 +11,7 @@ const id = [
 async function getItems(id) {
   let response = '';
   response = await fetch(`http://localhost:3000/version1/item/${id}`);
-  let Json = await response.json().then((data) => {
-    return data;
-  });
+  let Json = await response.json()
   return Json;
 }
 
@@ -39,8 +34,10 @@ let pictureGenerator = (listOfItems) => {
   for (let index = 0; index < listOfItems.length; index++) {
 
     let picBox = document.createElement("img");
-    picBox.style.width = 100 / listOfItems.length + '%';
+    picBox.style.backgroundColor = '#212529';
+    picBox.style.width = ((100 - listOfItems.length * 4) / listOfItems.length) + '%';
     picBox.src = listOfItems[index].image;
+
     div.appendChild(picBox);
 
   }  
@@ -52,7 +49,7 @@ let tableGenerator = (listOfItems)  => {
 
   for (let outIndex = 0; outIndex < listOfItems.length; outIndex++) {
     let newRow = table.insertRow(-1);
-    let firstCell = document.createElement("td");
+    let firstCell = document.createElement("th");
     firstCell.appendChild(document.createTextNode(listOfItems[outIndex].name));
     newRow.style.width = 100 / listOfItems.length + '%';
     newRow.appendChild(firstCell);
