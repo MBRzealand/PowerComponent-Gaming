@@ -213,6 +213,6 @@ let goToProductPage = (itemID) => {
   let url = new URL(
     'http://localhost:5500/PowerComponent-Gaming/Client/productPage.html'
   );
-  url.searchParams.append('input', itemID);
+  url.searchParams.append('itemID', itemID);
   document.location = url;
 };
