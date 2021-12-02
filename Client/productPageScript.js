@@ -27,7 +27,7 @@ async function getClickedElement(itemID) {
   let response = await fetch(`http://localhost:3000/version1/item/${itemID}`);
 
   let product = await response.json();
-  console.log(product);
+
   generateProductPage(product);
 }
 
