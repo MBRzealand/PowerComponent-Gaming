@@ -16,22 +16,24 @@ body {
   color: #eeeeee;
 }
 
-
-
-table, th, td{
+table,
+th,
+td {
   width: 100%;
   border: solid;
   border-style: groove;
   color: white;
 }
 
-tr { 
+tr {
   display: block;
-  float: left; }
-th, td {
+  float: left;
+}
+th,
+td {
   display: block;
-  white-space:pre; }
-
+  white-space: pre;
+}
 
 #searchButton {
   border-radius: 2px;
@@ -40,6 +42,3 @@ th, td {
   box-shadow: none;
   border: none;
 }
-
-
-
