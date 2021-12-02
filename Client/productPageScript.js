@@ -1,81 +1,67 @@
 const searchInput = document.getElementById('searchInput');
-
-const productName = document.getElementById("productName");
-const productDescription = document.getElementById("productDescription");
-const productPrice = document.getElementById("price");
-const productSpecificationsDIV = document.getElementById("productSpecifications")
-
+const productName = document.getElementById('productName');
+const productDescription = document.getElementById('productDescription');
+const productPrice = document.getElementById('price');
+const productSpecificationsDIV = document.getElementById(
+  'productSpecifications'
+);
 
 let searchFunction = () => {
-    let search = searchInput.value;
-    let url = new URL('http://localhost:5500/Client/resultsPage.html');
-    url.searchParams.append('input', search);
-    document.location = url;
+  let search = searchInput.value;
+  let url = new URL('http://localhost:5500/Client/resultsPage.html');
+  url.searchParams.append('input', search);
+  document.location = url;
 };
 
 function start() {
-    const urlParams = new URLSearchParams(window.location.search);
-    let productID = urlParams.get('itemID');
-    getClickedElement(productID)
-};
+  const urlParams = new URLSearchParams(window.location.search);
+  let productID = urlParams.get('itemID');
+  getClickedElement(productID);
+}
 
 start();
 
+async function getClickedElement(itemID) {
+  let response = await fetch(`http://localhost:3000/version1/item/${itemID}`);
 
-async function getClickedElement (itemID){
-
-        let response = await fetch(
-        `http://localhost:3000/version1/item/${itemID}`
-        );
-
-        let product = await response.json();
-
-        generateProductPage(product)
-
+  let product = await response.json();
+  console.log(product);
+  generateProductPage(product);
 }
 
-
 let displaySpecifications = (specificationsObjectArray) => {
-    let specificationsArray = [];
+  let specificationsArray = [];
 
-    specificationsObjectArray.forEach((specifications) => {
-        for (key in specifications) {
-            if (key != '_id') {
-                specificationsArray.push(key);
-                specificationsArray.push(specifications[key]);
-            }
-        }
-    });
+  specificationsObjectArray.forEach((specifications) => {
+    for (key in specifications) {
+      specificationsArray.push(key);
+      specificationsArray.push(specifications[key]);
+    }
+  });
 
-    return specificationsArray;
+  return specificationsArray;
 };
 
 let generateProductPage = (product) => {
-    productName.innerText = product.name
-    productDescription.innerText = product.description
-    productPrice.innerText = product.price
+  productName.innerText = product.item.name;
+  if (product.item.description) {
+    productDescription.innerText = product.item.description;
+  }
+  productPrice.innerText = product.item.price;
+  const itemSpecificationContainer = document.createElement('ul');
 
-    for (let j = 0; j < product.specifications.length * 2; j += 2) {
-        let specificationList = displaySpecifications(product.specifications);
+  for (let j = 0; j < product.item.specifications.length * 2; j += 2) {
+    let specificationList = displaySpecifications(product.item.specifications);
+    let pTag = document.createElement('p');
+    pTag.innerHTML = `${specificationList[j]}: ${specificationList[j + 1]}`;
+    let specificationNode = document.createTextNode(
+      `${specificationList[j]}: ${specificationList[j + 1]}`
+    );
 
-        let specificationNode = document.createTextNode(
-            `${specificationList[j]}: ${specificationList[j + 1]}`
-        );
-        let node = document.createElement('li');
-        node.appendChild(specificationNode);
-        itemSpecificationContainer.appendChild(node);
-    }
-
-
-    for (let i = 0; i < product.specifications.length; i++) {
-        let specification = document.createElement("div")
-        let specificationKey = document.createElement("p")
-        let specificationValue = document.createElement("p")
-        specification.appendChild(specificationKey)
-        specification.appendChild(specificationValue)
-
-        specificationKey.innerText = product.specifications
-
-        productSpecificationsDIV.appendChild(specification)
-    }
-}
+    let node = document.createElement('li');
+    node.appendChild(specificationNode);
+    itemSpecificationContainer.appendChild(pTag);
+    let div = document.getElementById('specificationDiv');
+    div.appendChild(itemSpecificationContainer);
+  }
+};
