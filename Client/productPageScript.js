@@ -13,14 +13,18 @@ let searchFunction = () => {
     document.location = url;
 };
 
-let getClickedElement = async () => {
+let start = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    let productID = urlParams.get('itemID');
+    getClickedElement(productID)
+};
+document.onload = start();
 
-        const urlParams = new URLSearchParams(window.location.search);
-        let productID = urlParams.get('productID');
 
+let getClickedElement = async (itemID) => {
 
         let response = await fetch(
-        `http://localhost:3000/version1/item/${productID}`
+        `http://localhost:3000/version1/item/${itemID}`
         );
 
         let product = await response.json();

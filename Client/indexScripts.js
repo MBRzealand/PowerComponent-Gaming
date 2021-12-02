@@ -35,6 +35,8 @@ let itemCard = (item) => {
   const itemContainerDiv = document.createElement('div');
   itemContainerDiv.setAttribute('class', 'itemContainerDiv');
 
+  itemContainerDiv.addEventListener('click', goToProductPage(item._id));
+
   const itemNameContainer = document.createElement('h4');
   itemNameContainer.innerHTML = item.name;
 
@@ -204,3 +206,12 @@ let searchFunction = () => {
   url.searchParams.append('input', search);
   document.location = url;
 };
+
+
+let goToProductPage = (itemID) => {
+
+  let url = new URL('http://localhost:5500/Client/productPage.html');
+  url.searchParams.append('input', itemID);
+  document.location = url;
+}
+
