@@ -11,112 +11,74 @@ const listOfItems = [
 },
     {name:"GPU",
     image:"../assets/placeholder_image.png",
-    specifications: [{Hardware: 'hardware'},{lidtSoftware: 'lidtSoftware'}, {software: 'software'}],
+    specifications: [{Hardware: 'hardware'},{lidtSoftware: 'lidtSoftware'}, {software: 'software'},{software2: 'software2'}, {software3: 'software3'}],
+    price: 600,
+    inStorage:10,
+    amountSold: 1000,
+    categories: [],
+},
+{name:"GPU",
+    image:"../assets/placeholder_image.png",
+    specifications: [{Hardware: 'hardware'},{lidtSoftware: 'lidtToast'}, {software: 'software'}],
     price: 600,
     inStorage:10,
     amountSold: 1000,
     categories: [],
 }];
 
-function itemSort(itemList){
-    let specificationsArray = [];
-  
-    itemList.forEach(element => {
-        
-        
-        element.forEach((specifications) => {
-        for (key in specifications) {
-            
-          specificationsArray.push(key);
-          specificationsArray.push(specifications[key]);
-            
-        }
-      });
-    });
-
-      console.log(specificationsArray);
-}
-
-itemSort(listOfItems);
-
-let displaySpecifications = (specificationsObjectArray) => {
-    let specificationsArray = [];
-  
-    specificationsObjectArray.forEach((specifications) => {
-      for (key in specifications) {
-          
-        specificationsArray.push(key);
-        specificationsArray.push(specifications[key]);
-      }
-    });
-  
-    console.log(specificationsArray);
-  
-    return specificationsArray;
-  };
-
-
-
 const div = document.getElementById('centerContainer')
 
-let generateCards = (listOfItems) => {
-    const listLenght = listOfItems.length;
-    console.log(listLenght);
-  
-    for (let i = 0; i < listLenght; i++) {
-      const productName = document.createElement('h3');
-      const name = document.createTextNode(listOfItems[i].name);
-      productName.appendChild(name);
-  
-      const specificationTitle = document.createElement('h4');
-      const title = document.createTextNode('Specifications:');
-      specificationTitle.appendChild(title);
-  
-      const productSpecifications = document.createElement('p');
 
-      
-  
-      for (
-        let j = 0;
-        j < listOfItems[i].specifications.length * 2;
-        j += 2
-      ) {console.log(j);
-        let specificationList = displaySpecifications(
-            listOfItems[i].specifications
-        );
-            
-        let specificationKeyValuePair = document.createElement('p');
-  
-        let keyValuePair = document.createTextNode(
-          `${specificationList[j]}: ${specificationList[j + 1]}`
-        );
-            
-        specificationKeyValuePair.appendChild(keyValuePair);
-  
-        productSpecifications.appendChild(specificationKeyValuePair);
-      }
-  
-      const productPrice = document.createElement('button');
-      const price = document.createTextNode(
-        `${listOfItems[i].price} kr`
-      );
-      productPrice.setAttribute('class', 'price');
-      productPrice.appendChild(price);
-  
-      let picturebox = document.createElement('img');
-      picturebox.src = listOfItems[i].image;
-      picturebox.setAttribute('class', 'productImage');
-  
-      const productCard = document.createElement('div');
-      productCard.appendChild(picturebox);
-      productCard.appendChild(productName);
-      productCard.appendChild(specificationTitle);
-      productCard.appendChild(productSpecifications);
-  
-      productCard.appendChild(productPrice);
-      productCard.setAttribute('class', 'card');
-  
-      div.appendChild(productCard);
-    }
+let pictureGenerator = (listOfItems) => {
+
+  for (let index = 0; index < listOfItems.length; index++) {
+
+    let picBox = document.createElement("img");
+    picBox.style.width = 100 / listOfItems.length + '%';
+    picBox.src = listOfItems[index].image;
+    div.appendChild(picBox);
+
+  }  
 }
-generateCards(listOfItems);
+
+let tableGenerator = (listOfItems)  => {
+  console.log(Object.keys(listOfItems[2].specifications[2]));
+
+   let table = document.createElement("table");
+
+  for (let outIndex = 0; outIndex < listOfItems.length; outIndex++) {
+    let newRow = table.insertRow(-1);
+    let firstCell = document.createElement("td");
+    firstCell.appendChild(document.createTextNode(listOfItems[outIndex].name));
+    newRow.style.width = 100 / listOfItems.length + '%';
+    newRow.appendChild(firstCell);
+
+    let priceCell = document.createElement("td");
+    priceCell.appendChild(document.createTextNode('Pris: \n' + listOfItems[outIndex].price  + " kr."));
+
+    newRow.appendChild(priceCell);
+
+
+  for (let index = 0; index < Object.keys(listOfItems[outIndex].specifications).length; index++) {
+  
+    let newCell = newRow.insertCell(-1);
+    let newText = document
+    .createTextNode
+    (Object.keys(listOfItems[outIndex].specifications[index]) 
+    + ":\n " + Object.values(listOfItems[outIndex].specifications[index]))
+
+    newCell.appendChild(newText);  
+    
+  }};
+
+
+
+   
+
+   div.appendChild(table);
+
+
+   
+}
+pictureGenerator(listOfItems);
+tableGenerator(listOfItems);
