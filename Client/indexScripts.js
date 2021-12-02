@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 let itemsArray = [];
+let compareID = 0;
 
 const createCatalouge = async () => {
   let response = await fetch('http://127.0.0.1:3000/version1/item');
@@ -79,9 +80,17 @@ let itemCard = (item) => {
   }
   //global?
   const compareBtn = document.createElement("button");
-  compareBtn.addEventListener('click', () => {
-    localStorage.setItem('item', item._id);
-  });
+  compareBtn.setAttribute("id","btnAddToBasket");
+  compareBtn.appendChild(document.createTextNode("Compare"));
+  compareBtn.addEventListener('click', (e) => {
+    if(compareID < 4){
+      localStorage.setItem(compareID, item._id);
+      compareID++;
+    } else {
+      alert("Too many items up for comparison");
+    }
+      e.stopPropagation();
+    });
 
   // Card append design
   itemImageContainer.appendChild(itemImage);

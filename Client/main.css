@@ -24,6 +24,14 @@ body {
   border: none;
 }
 
+#btnAddToBasket {
+  color: white;
+  background-color:rgba(255, 0, 0, 0.404);
+  border: none;
+  width: 97%;
+  margin: 10px auto 10px auto;
+}
+
 .itemContainerDiv {
   width: 24%;
   min-height: 500px;
@@ -49,4 +57,8 @@ body {
 .cardItemStorage {
   width: 25%;
   height: 5%;
+}
+
+.navbtn{
+  color: white;
 }

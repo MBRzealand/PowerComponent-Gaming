@@ -1,10 +1,16 @@
 let listOfItems = [];
+let id = [];
 
-const id = [
-  '61a0f32beae39f64a39f4309',
-  '61a4d8c49d3185de10ce5821',
-  '61a4dd2b4ff539de44db96ad',
-];
+function allStorage() {
+
+  keys = Object.keys(localStorage),
+  i = keys.length;
+
+  while ( i-- ) {
+      id.push( localStorage.getItem(keys[i]) );
+  }
+}
+allStorage();
 
 async function getItems(id) {
   let response = '';
@@ -22,21 +28,15 @@ async function loop() {
   tableGenerator(listOfItems);
 }
 loop();
-console.log(listOfItems);
 
 const div = document.getElementById('centerContainer');
 
 let pictureGenerator = (listOfItems) => {
   for (let index = 0; index < listOfItems.length; index++) {
-<<<<<<< HEAD
 
     let picBox = document.createElement("img");
     picBox.style.backgroundColor = '#212529';
     picBox.style.width = ((100 - listOfItems.length * 4) / listOfItems.length) + '%';
-=======
-    let picBox = document.createElement('img');
-    picBox.style.width = 100 / listOfItems.length + '%';
->>>>>>> cdf4ce0c733b24ddfb0f9e3cd9de53418b85c65a
     picBox.src = listOfItems[index].image;
 
     div.appendChild(picBox);
@@ -48,11 +48,7 @@ let tableGenerator = (listOfItems) => {
 
   for (let outIndex = 0; outIndex < listOfItems.length; outIndex++) {
     let newRow = table.insertRow(-1);
-<<<<<<< HEAD
     let firstCell = document.createElement("th");
-=======
-    let firstCell = document.createElement('td');
->>>>>>> cdf4ce0c733b24ddfb0f9e3cd9de53418b85c65a
     firstCell.appendChild(document.createTextNode(listOfItems[outIndex].name));
     newRow.style.width = 100 / listOfItems.length + '%';
     newRow.appendChild(firstCell);
@@ -80,4 +76,9 @@ let tableGenerator = (listOfItems) => {
     }
   }
   div.appendChild(table);
+};
+
+function clearLocalStorage(){
+  localStorage.clear();
+  location.href='./comparison.html'
 };
