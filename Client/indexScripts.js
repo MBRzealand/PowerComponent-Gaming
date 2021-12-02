@@ -35,6 +35,10 @@ let itemCard = (item) => {
   const itemContainerDiv = document.createElement('div');
   itemContainerDiv.setAttribute('class', 'itemContainerDiv');
 
+  itemContainerDiv.addEventListener('click', function () {
+    goToProductPage(item._id);
+  });
+
   const itemNameContainer = document.createElement('h4');
   itemNameContainer.innerHTML = item.name;
 
@@ -207,7 +211,13 @@ dropdownSortAmountSoldBtn.addEventListener('click', sortForAmountSold);
 
 let searchFunction = () => {
   let search = searchInput.value;
-  let url = new URL('http://localhost:5500/Client/resultspage.html');
+  let url = new URL('http://localhost:5500/Client/resultsPage.html');
   url.searchParams.append('input', search);
+  document.location = url;
+};
+
+let goToProductPage = (itemID) => {
+  let url = new URL('http://localhost:5500/Client/productPage.html');
+  url.searchParams.append('itemID', itemID);
   document.location = url;
 };

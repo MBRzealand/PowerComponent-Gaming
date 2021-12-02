@@ -5,6 +5,9 @@ const ItemSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A name must be specified'],
   },
+  description: {
+    type: String,
+  },
   image: {
     type: String,
     default: '../assets/placeholder_image.png',

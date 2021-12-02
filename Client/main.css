@@ -31,6 +31,7 @@ body {
   color: white;
   padding: 1%;
   background-color: #161616;
+  cursor: pointer;
 }
 
 .cardImageContainer {
