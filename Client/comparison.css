@@ -27,7 +27,7 @@ table, th, td{
   color: white;
 }
 
-tr { 
+tr {
   display: block;
   float: left; }
 
@@ -48,6 +48,3 @@ th{
   box-shadow: none;
   border: none;
 }
-
-
-

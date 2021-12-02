@@ -1,5 +1,3 @@
-
-
 let listOfItems = [];
 
 const id = [
@@ -26,50 +24,60 @@ async function loop() {
 loop();
 console.log(listOfItems);
 
-const div = document.getElementById('centerContainer')
-
+const div = document.getElementById('centerContainer');
 
 let pictureGenerator = (listOfItems) => {
-
   for (let index = 0; index < listOfItems.length; index++) {
+<<<<<<< HEAD
 
     let picBox = document.createElement("img");
     picBox.style.backgroundColor = '#212529';
     picBox.style.width = ((100 - listOfItems.length * 4) / listOfItems.length) + '%';
+=======
+    let picBox = document.createElement('img');
+    picBox.style.width = 100 / listOfItems.length + '%';
+>>>>>>> cdf4ce0c733b24ddfb0f9e3cd9de53418b85c65a
     picBox.src = listOfItems[index].image;
 
     div.appendChild(picBox);
+  }
+};
 
-  }  
-}
-
-let tableGenerator = (listOfItems)  => {
-
-   let table = document.createElement("table");
+let tableGenerator = (listOfItems) => {
+  let table = document.createElement('table');
 
   for (let outIndex = 0; outIndex < listOfItems.length; outIndex++) {
     let newRow = table.insertRow(-1);
+<<<<<<< HEAD
     let firstCell = document.createElement("th");
+=======
+    let firstCell = document.createElement('td');
+>>>>>>> cdf4ce0c733b24ddfb0f9e3cd9de53418b85c65a
     firstCell.appendChild(document.createTextNode(listOfItems[outIndex].name));
     newRow.style.width = 100 / listOfItems.length + '%';
     newRow.appendChild(firstCell);
 
-    let priceCell = document.createElement("td");
-    priceCell.appendChild(document.createTextNode('Pris: \n' + listOfItems[outIndex].price  + " kr."));
+    let priceCell = document.createElement('td');
+    priceCell.appendChild(
+      document.createTextNode('Pris: \n' + listOfItems[outIndex].price + ' kr.')
+    );
 
     newRow.appendChild(priceCell);
 
+    for (
+      let index = 0;
+      index < Object.keys(listOfItems[outIndex].specifications).length;
+      index++
+    ) {
+      let newCell = newRow.insertCell(-1);
+      let newText = document.createTextNode(
+        Object.keys(listOfItems[outIndex].specifications[index]) +
+          ':\n ' +
+          Object.values(listOfItems[outIndex].specifications[index])
+      );
 
-  for (let index = 0; index < Object.keys(listOfItems[outIndex].specifications).length; index++) {
-  
-    let newCell = newRow.insertCell(-1);
-    let newText = document
-    .createTextNode
-    (Object.keys(listOfItems[outIndex].specifications[index]) 
-    + ":\n " + Object.values(listOfItems[outIndex].specifications[index]))
-
-    newCell.appendChild(newText);  
-    
-  }};
-   div.appendChild(table);
-}
+      newCell.appendChild(newText);
+    }
+  }
+  div.appendChild(table);
+};
