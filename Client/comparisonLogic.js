@@ -11,9 +11,6 @@ function allStorage() {
       id.push(localStorage.getItem(key));
     }
   });
-  id.forEach((element) => {
-    console.log(element);
-  });
 }
 allStorage();
 

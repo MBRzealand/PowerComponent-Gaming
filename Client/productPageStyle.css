@@ -66,7 +66,7 @@ nav {
   padding-left: 10px;
 }
 
-#productName{
+#productName {
   font-size: x-large;
 }
 
@@ -98,7 +98,7 @@ nav {
 }
 
 #btnAddToBasket {
-  background-color:rgba(255, 0, 0, 0.404);
+  background-color: rgba(255, 0, 0, 0.404);
   border: none;
   width: 97%;
   margin: 10px auto 10px auto;
@@ -119,4 +119,26 @@ nav {
   font-size: x-large;
   border-radius: 5px;
   padding: 1px 0px 0px 10px;
+}
+
+#headBar {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+#basketLogo {
+  max-width: 10%;
+  background-color: #212529;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+}
+
+#basketAndTextContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

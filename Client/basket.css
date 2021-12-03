@@ -22,6 +22,15 @@ body {
   padding: 0% 2% 0% 2%;
 }
 
+.price {
+  text-align: center;
+  background-color: rgba(255, 0, 0, 0.404);
+  text-shadow: 1px 1px 3px #000;
+  color: white;
+  border: solid rgba(119, 0, 0, 0.404);
+  border-radius: 7px;
+}
+
 .basket {
   display: column;
   width: 60%;
@@ -33,9 +42,37 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-top: 5%;
+  margin-top: 3%;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  background-color: #161616;
+  color: white;
+  cursor: pointer;
+  max-width: 100%;
+  margin-top: 1%;
 }
 
 .totalPriceContainer {
   margin-right: 2%;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.flexEnd {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-right: 1%;
+}
+
+.productImage {
+  max-height: 15vh;
 }

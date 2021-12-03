@@ -93,3 +93,8 @@ function addToBasket() {
   }
   localStorage.setItem(`valgtVare${itemIdNumber}`, item);
 }
+
+function goToBasket() {
+  let url = new URL('http://localhost:5500/Client/basket.html');
+  document.location = url;
+}
