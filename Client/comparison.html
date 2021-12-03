@@ -21,8 +21,7 @@
         <div id="searchDiv">
           <input class="" id="searchInput" type="text" />
           <button
-            class="btn btn-primary"
-            id="searchButton"
+            class="btn btn-primary searchButton"
             onclick="searchFunction()"
           >
             Search
@@ -30,9 +29,11 @@
         </div>
       </div>
     </nav>
-    <button onclick="clearLocalStorage()">clear</button>
 
     <div id="centerContainer" class="container w-70"></div>
+    <div id="searchDIV">
+      <button class="searchButton" onclick="clearLocalStorage()">Clear</button>
+    </div>
     <script src="comparisonLogic.js"></script>
   </body>
 </html>

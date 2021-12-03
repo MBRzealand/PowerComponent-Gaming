@@ -19,7 +19,10 @@
           ><h1 class="title">Power Component-Gaming</h1></a
         >
         <li class="nav-item">
-        <p class="navbtn" onclick="location.href='./comparison.html'">comparison</p></li>
+          <p class="navbtn" onclick="location.href='./comparison.html'">
+            comparison
+          </p>
+        </li>
         <div id="searchDiv">
           <input class="" id="searchInput" type="text" />
           <button
@@ -34,20 +37,24 @@
     </nav>
 
     <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Sorter katalog
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a id="priceSortBtn" class="dropdown-item">Pris</a></li>
-        <li><a id="nameSortBtn" class="dropdown-item">Navn</a></li>
-        <li><a id="amoundSoldSortBtn" class="dropdown-item">Antal solgt</a></li>
-      </ul>
+      <div id="innerDivButton">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Sorter katalog
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a id="priceSortBtn" class="dropdown-item">Pris</a></li>
+          <li><a id="nameSortBtn" class="dropdown-item">Navn</a></li>
+          <li>
+            <a id="amoundSoldSortBtn" class="dropdown-item">Antal solgt</a>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <div id="centerContainer" class="container w-70"></div>

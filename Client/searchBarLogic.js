@@ -109,7 +109,6 @@ let generateCards = (response) => {
     productCard.addEventListener('click', function () {
       goToProductPage(response.foundElements.name[i]._id);
     });
-
   }
 
   const specificationsArrayLength =
@@ -253,7 +252,6 @@ let generateCards = (response) => {
   resultsDiv.appendChild(specificationsDiv);
   resultsDiv.appendChild(line3);
   resultsDiv.appendChild(categoriesDiv);
-
 };
 
 let goToProductPage = (itemID) => {

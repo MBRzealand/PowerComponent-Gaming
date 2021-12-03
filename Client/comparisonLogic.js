@@ -2,12 +2,10 @@ let listOfItems = [];
 let id = [];
 
 function allStorage() {
+  (keys = Object.keys(localStorage)), (i = keys.length);
 
-  keys = Object.keys(localStorage),
-  i = keys.length;
-
-  while ( i-- ) {
-      id.push( localStorage.getItem(keys[i]) );
+  while (i--) {
+    id.push(localStorage.getItem(keys[i]));
   }
 }
 allStorage();
@@ -15,7 +13,7 @@ allStorage();
 async function getItems(id) {
   let response = '';
   response = await fetch(`http://localhost:3000/version1/item/${id}`);
-  let Json = await response.json()
+  let Json = await response.json();
   return Json;
 }
 
@@ -33,11 +31,14 @@ const div = document.getElementById('centerContainer');
 
 let pictureGenerator = (listOfItems) => {
   for (let index = 0; index < listOfItems.length; index++) {
-
-    let picBox = document.createElement("img");
+    let picBox = document.createElement('img');
     picBox.style.backgroundColor = '#212529';
-    picBox.style.width = ((100 - listOfItems.length * 4) / listOfItems.length) + '%';
+    picBox.style.width =
+      (100 - listOfItems.length * 4) / listOfItems.length + '%';
     picBox.src = listOfItems[index].image;
+    picBox.addEventListener('click', function () {
+      goToProductPage(listOfItems[index]._id);
+    });
 
     div.appendChild(picBox);
   }
@@ -48,7 +49,7 @@ let tableGenerator = (listOfItems) => {
 
   for (let outIndex = 0; outIndex < listOfItems.length; outIndex++) {
     let newRow = table.insertRow(-1);
-    let firstCell = document.createElement("th");
+    let firstCell = document.createElement('th');
     firstCell.appendChild(document.createTextNode(listOfItems[outIndex].name));
     newRow.style.width = 100 / listOfItems.length + '%';
     newRow.appendChild(firstCell);
@@ -78,7 +79,13 @@ let tableGenerator = (listOfItems) => {
   div.appendChild(table);
 };
 
-function clearLocalStorage(){
+function clearLocalStorage() {
   localStorage.clear();
-  location.href='./comparison.html'
+  location.href = './comparison.html';
+}
+
+let goToProductPage = (itemID) => {
+  let url = new URL('http://localhost:5500/Client/productPage.html');
+  url.searchParams.append('itemID', itemID);
+  document.location = url;
 };

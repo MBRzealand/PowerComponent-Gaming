@@ -68,7 +68,10 @@ let itemCard = (item) => {
   itemAmountSoldContainer.innerHTML = 'Antal solgt: ' + item.amountSold;
 
   const itemSpecificationContainer = document.createElement('ul');
-  for (let j = 0; j < item.specifications.length * 2; j += 2) {
+
+  const itemLength =
+    item.specifications.length < 3 ? item.specifications.length : 3;
+  for (let j = 0; j < itemLength * 2; j += 2) {
     let specificationList = displaySpecifications(item.specifications);
 
     let specificationNode = document.createTextNode(
@@ -78,19 +81,23 @@ let itemCard = (item) => {
     node.appendChild(specificationNode);
     itemSpecificationContainer.appendChild(node);
   }
-  //global?
-  const compareBtn = document.createElement("button");
-  compareBtn.setAttribute("id","btnAddToBasket");
-  compareBtn.appendChild(document.createTextNode("Compare"));
+
+  const compareBtn = document.createElement('button');
+  compareBtn.setAttribute('id', 'btnAddToBasket');
+  compareBtn.appendChild(document.createTextNode('Compare'));
   compareBtn.addEventListener('click', (e) => {
-    if(compareID < 4){
+    if (compareID < 4) {
       localStorage.setItem(compareID, item._id);
       compareID++;
     } else {
-      alert("Too many items up for comparison");
+      alert('Too many items up for comparison');
     }
-      e.stopPropagation();
-    });
+    e.stopPropagation();
+  });
+
+  const productBTN = document.createElement('button');
+  productBTN.setAttribute('id', 'btnAddToBasket');
+  productBTN.appendChild(document.createTextNode('Se vare'));
 
   // Card append design
   itemImageContainer.appendChild(itemImage);
@@ -101,7 +108,7 @@ let itemCard = (item) => {
   itemContainerDiv.appendChild(itemSpecificationContainer);
   itemContainerDiv.appendChild(itemPriceContainer);
   itemContainerDiv.appendChild(compareBtn);
-
+  itemContainerDiv.appendChild(productBTN);
 
   return itemContainerDiv;
 };

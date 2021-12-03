@@ -4,8 +4,6 @@
   width: 60%;
   flex-wrap: wrap;
   margin: auto;
-  border: 5px;
-  border-style: dashed;
 }
 
 body {
@@ -26,7 +24,7 @@ body {
 
 #btnAddToBasket {
   color: white;
-  background-color:rgba(255, 0, 0, 0.404);
+  background-color: rgba(255, 0, 0, 0.404);
   border: none;
   width: 97%;
   margin: 10px auto 10px auto;
@@ -59,6 +57,18 @@ body {
   height: 5%;
 }
 
-.navbtn{
+.navbtn {
   color: white;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#innerDivButton {
+  width: 60%;
 }
