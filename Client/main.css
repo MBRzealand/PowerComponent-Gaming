@@ -1,6 +1,5 @@
 #centerContainer {
   display: flex;
-
   width: 60%;
   flex-wrap: wrap;
   margin: auto;
@@ -71,4 +70,7 @@ body {
 
 #innerDivButton {
   width: 60%;
+}
+
+.totalPriceContainer {
 }

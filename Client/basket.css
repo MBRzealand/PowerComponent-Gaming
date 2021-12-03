@@ -1,0 +1,41 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.navbtn {
+  color: white;
+}
+
+#searchButton {
+  border-radius: 2px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  box-shadow: none;
+  border: none;
+}
+
+.btnStyling {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  border: none;
+  padding: 0% 2% 0% 2%;
+}
+
+.basket {
+  display: column;
+  width: 60%;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+.priceAndButtonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 5%;
+}
+
+.totalPriceContainer {
+  margin-right: 2%;
+}

@@ -255,9 +255,7 @@ let generateCards = (response) => {
 };
 
 let goToProductPage = (itemID) => {
-  let url = new URL(
-    'http://localhost:5500/PowerComponent-gaming/Client/productPage.html'
-  );
+  let url = new URL('http://localhost:5500/Client/productPage.html');
   url.searchParams.append('itemID', itemID);
   document.location = url;
 };

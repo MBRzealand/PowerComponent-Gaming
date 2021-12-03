@@ -4,6 +4,7 @@ const productDescription = document.getElementById('productDescription');
 const productPrice = document.getElementById('price');
 const productStorage = document.getElementById('productStorage');
 const productStorageDiv = document.getElementById('productStorageDiv');
+let item;
 const productSpecificationsDIV = document.getElementById(
   'productSpecifications'
 );
@@ -27,7 +28,7 @@ async function getClickedElement(itemID) {
   let response = await fetch(`http://localhost:3000/version1/item/${itemID}`);
 
   let product = await response.json();
-
+  item = itemID;
   generateProductPage(product);
 }
 
@@ -50,14 +51,14 @@ let generateProductPage = (product) => {
   itemImage.src = product.item.image;
   itemImage.setAttribute('class', 'cardImage');
   document.getElementById('productImage').appendChild(itemImage);
-  
+
   // Product content code
-  
+
   productName.innerText = product.item.name;
   if (product.item.description) {
     productDescription.innerText = product.item.description;
   }
-  productPrice.innerText = product.item.price + ",-";
+  productPrice.innerText = product.item.price + ',-';
 
   let itemStorageAmount = product.item.inStorage;
   if (itemStorageAmount < 5) {
@@ -67,8 +68,7 @@ let generateProductPage = (product) => {
   } else {
     productStorageDiv.style.backgroundColor = 'green';
   }
-  productStorage.innerHTML = itemStorageAmount + " stk. på lager";
-
+  productStorage.innerHTML = itemStorageAmount + ' stk. på lager';
 
   // Specification code
 
@@ -78,9 +78,18 @@ let generateProductPage = (product) => {
     let specificationList = displaySpecifications(product.item.specifications);
     let pTag = document.createElement('p');
     pTag.innerHTML = `${specificationList[j]}: ${specificationList[j + 1]}`;
-    
+
     itemSpecificationContainer.appendChild(pTag);
     let div = document.getElementById('specificationDiv');
     div.appendChild(itemSpecificationContainer);
   }
 };
+
+function addToBasket() {
+  let itemIdNumber = 0;
+  (keys = Object.keys(localStorage)), (i = keys.length);
+  while (i--) {
+    itemIdNumber += 1;
+  }
+  localStorage.setItem(`valgtVare${itemIdNumber}`, item);
+}

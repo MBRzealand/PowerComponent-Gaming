@@ -1,12 +1,19 @@
 let listOfItems = [];
 let id = [];
-
+let listOfItemKeys = [];
 function allStorage() {
   (keys = Object.keys(localStorage)), (i = keys.length);
-
   while (i--) {
-    id.push(localStorage.getItem(keys[i]));
+    listOfItemKeys.push(localStorage.key(i));
   }
+  listOfItemKeys.forEach((key) => {
+    if (localStorage.getItem(key).substr(0, 9) != 'valgtVare') {
+      id.push(localStorage.getItem(key));
+    }
+  });
+  id.forEach((element) => {
+    console.log(element);
+  });
 }
 allStorage();
 
