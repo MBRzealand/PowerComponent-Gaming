@@ -14,11 +14,11 @@ categoriesDiv.setAttribute('class', 'specificationHolder');
 let start = () => {
   const urlParams = new URLSearchParams(window.location.search);
   input.value = urlParams.get('input');
-  searchFunction();
+  getResultFromSearch();
 };
 document.onload = start();
 
-async function searchFunction() {
+async function getResultFromSearch() {
   resultsDiv.innerHTML = '';
   namesDiv.innerHTML = '';
   specificationsDiv.innerHTML = '';
