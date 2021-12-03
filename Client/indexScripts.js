@@ -83,7 +83,7 @@ let itemCard = (item) => {
   }
 
   const compareBtn = document.createElement('button');
-  compareBtn.setAttribute('id', 'btn');
+  compareBtn.setAttribute('class', 'btnStyling');
   compareBtn.appendChild(document.createTextNode('Compare'));
   compareBtn.addEventListener('click', (e) => {
     if (compareID < 4) {
@@ -96,7 +96,7 @@ let itemCard = (item) => {
   });
 
   const productBTN = document.createElement('button');
-  productBTN.setAttribute('id', 'btn');
+  productBTN.setAttribute('class', 'btnStyling');
   productBTN.appendChild(document.createTextNode('Se vare'));
 
   // Card append design
