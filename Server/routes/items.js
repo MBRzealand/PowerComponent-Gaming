@@ -71,7 +71,6 @@ router.delete('/:id', async (req, res, next) => {
 router.get('/:id', async (req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   try {
-    res.setHeader('Access-Control-Allow-Origin', '*');
     const { id: itemId } = req.params;
     const item = await ItemScheme.findOne({ _id: itemId });
 
