@@ -4,8 +4,6 @@
   width: 60%;
   flex-wrap: wrap;
   margin: auto;
-  border: 5px;
-  border-style: dashed;
 }
 
 body {
@@ -22,6 +20,14 @@ body {
   background-color: rgba(255, 0, 0, 0.404);
   box-shadow: none;
   border: none;
+}
+
+.btnStyling {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  border: none;
+  width: 97%;
+  margin: 10px auto 10px auto;
 }
 
 .itemContainerDiv {
@@ -49,4 +55,20 @@ body {
 .cardItemStorage {
   width: 25%;
   height: 5%;
+}
+
+.navbtn {
+  color: white;
+}
+
+.dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#innerDivButton {
+  width: 60%;
 }

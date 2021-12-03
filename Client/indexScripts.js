@@ -1,5 +1,6 @@
 const searchInput = document.getElementById('searchInput');
 let itemsArray = [];
+let compareID = 0;
 
 const createCatalouge = async () => {
   let response = await fetch('http://127.0.0.1:3000/version1/item');
@@ -67,7 +68,10 @@ let itemCard = (item) => {
   itemAmountSoldContainer.innerHTML = 'Antal solgt: ' + item.amountSold;
 
   const itemSpecificationContainer = document.createElement('ul');
-  for (let j = 0; j < item.specifications.length * 2; j += 2) {
+
+  const itemLength =
+    item.specifications.length < 3 ? item.specifications.length : 3;
+  for (let j = 0; j < itemLength * 2; j += 2) {
     let specificationList = displaySpecifications(item.specifications);
 
     let specificationNode = document.createTextNode(
@@ -78,6 +82,23 @@ let itemCard = (item) => {
     itemSpecificationContainer.appendChild(node);
   }
 
+  const compareBtn = document.createElement('button');
+  compareBtn.setAttribute('class', 'btnStyling');
+  compareBtn.appendChild(document.createTextNode('Compare'));
+  compareBtn.addEventListener('click', (e) => {
+    if (compareID < 4) {
+      localStorage.setItem(compareID, item._id);
+      compareID++;
+    } else {
+      alert('Too many items up for comparison');
+    }
+    e.stopPropagation();
+  });
+
+  const productBTN = document.createElement('button');
+  productBTN.setAttribute('class', 'btnStyling');
+  productBTN.appendChild(document.createTextNode('Se vare'));
+
   // Card append design
   itemImageContainer.appendChild(itemImage);
   itemContainerDiv.appendChild(itemImageContainer);
@@ -86,6 +107,8 @@ let itemCard = (item) => {
   itemContainerDiv.appendChild(itemAmountSoldContainer);
   itemContainerDiv.appendChild(itemSpecificationContainer);
   itemContainerDiv.appendChild(itemPriceContainer);
+  itemContainerDiv.appendChild(compareBtn);
+  itemContainerDiv.appendChild(productBTN);
 
   return itemContainerDiv;
 };

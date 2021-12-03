@@ -1,0 +1,58 @@
+#centerContainer {
+  display: flex;
+  width: 60%;
+  flex-wrap: wrap;
+  margin: auto;
+  margin-top: 2%;
+  padding: 2%;
+}
+
+body {
+  background-color: black;
+}
+
+.title {
+  color: #eeeeee;
+}
+
+img {
+  margin: 2%;
+
+  cursor: pointer;
+}
+
+table,
+th,
+td {
+  width: 100%;
+  border: solid 2px #212529;
+  color: white;
+}
+
+tr {
+  display: block;
+  float: left;
+}
+
+th,
+td {
+  display: block;
+  white-space: pre;
+}
+
+th {
+  font-weight: bold;
+}
+
+.searchButton {
+  border-radius: 2px;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  box-shadow: none;
+  border: none;
+}
+#searchDIV {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
