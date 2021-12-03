@@ -13,16 +13,16 @@ async function populateCategoryDropdownMenu() {
 
     let itemsJSON = await response.json();
 
-    itemsArray = await itemsJSON.items;
+    itemsArray2 = await itemsJSON.items;
 
     let categoryArray = [];
 
-    for (let i = 0; i < itemsArray.length; i++) {
+    for (let i = 0; i < itemsArray2.length; i++) {
         
-        for (let j = 0; j < itemsArray[i].categories.length; j++) {
+        for (let j = 0; j < itemsArray2[i].categories.length; j++) {
             
-            if (!categoryArray.includes(itemsArray[i].categories[j])) {
-                categoryArray.push(itemsArray[i].categories[j]);
+            if (!categoryArray.includes(itemsArray2[i].categories[j])) {
+                categoryArray.push(itemsArray2[i].categories[j]);
             }
             
         }
