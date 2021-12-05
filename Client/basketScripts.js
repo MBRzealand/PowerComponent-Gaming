@@ -4,9 +4,11 @@ let id = [];
 let listOfItemKeys = [];
 
 async function start() {
+  listOfItems = [];
+  id = [];
+  listOfItemKeys = [];
   allStorage();
   for (let i = 0; i < id.length; i++) {
-    console.log(id.length);
     await generateCards(await getItems(id[i]));
   }
 }
@@ -20,20 +22,21 @@ document.onload = start();
 
 function allStorage() {
   (keys = Object.keys(localStorage)), (i = keys.length);
-  while (i--) {
+
+  for (let i = 0; i < keys.length; i++) {
     listOfItemKeys.push(localStorage.key(i));
-    listOfItemKeys.forEach((key) => {
-      if (key.substr(0, 9) == 'valgtVare') {
-        id.push(localStorage.getItem(key));
-      }
-    });
   }
+  listOfItemKeys.forEach((key) => {
+    if (key.substr(0, 9) == 'valgtVare') {
+      id.push(localStorage.getItem(key));
+    }
+  });
 }
 
 async function generateCards(response) {
   const productName = document.createElement('h3');
   const name = document.createTextNode(response.item.name);
-  console.log(response.item.name);
+
   productName.appendChild(name);
   const specificationTitle = document.createElement('h4');
   const title = document.createTextNode('Specifications:');
