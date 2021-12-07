@@ -9,18 +9,18 @@ submitButton.addEventListener('click', (e) => {
 });
 
 async function mail() {
-  let data = { email: emailfield.value, text: textfield.value };
+  let data = await { email: emailfield.value, text: textfield.value };
+  console.log(data);
 
- 
-    
-    let response = await fetch('localhost:3000/version1/sendMail', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },body : JSON.stringify(data),
-    });
-    console.log(response)
-   
-
-  let itemsJSON = await response.json();
-};
+  let response = await fetch('http://127.0.0.1:3000/version1/sendMail', {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: {
+      email: 'Anders',
+      text: 'Hello chilas from postman',
+    },
+  });
+  console.log(response);
+}
