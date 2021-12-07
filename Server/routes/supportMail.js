@@ -3,8 +3,10 @@ const nodemailer = require("nodemailer");
 const router = express.Router();
 require('dotenv').config();
 
-router.get('/', function (req, res, next) {
+router.post('/', function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
     async function main() {
+        
         // Generate test SMTP service account from ethereal.email
         // Only needed if you don't have a real mail account for testing
         /*let testAccount = await nodemailer.createTestAccount();
@@ -30,11 +32,11 @@ router.get('/', function (req, res, next) {
 
         let mailOptions = {
           from: 'NYWallBuilder@gmail.com',
-          to: 'fredrikbille@hotmail.com',
-          subject: 'Hello',
-          text: 'Hello world?',
+          to: 'chil0041@edu.zealand.com',
+          subject: req.body.email,
+          text: req.body.text,
         }
-      
+        console.log(mailOptions)
         // send mail with defined transport object
          transporter.sendMail(mailOptions, (error, info) => {
           if (error) {
