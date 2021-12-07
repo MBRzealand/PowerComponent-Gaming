@@ -4,6 +4,7 @@ const productDescription = document.getElementById('productDescription');
 const productPrice = document.getElementById('price');
 const productStorage = document.getElementById('productStorage');
 const productStorageDiv = document.getElementById('productStorageDiv');
+let item;
 const productSpecificationsDIV = document.getElementById(
   'productSpecifications'
 );
@@ -20,7 +21,7 @@ async function getClickedElement(itemID) {
   let response = await fetch(`http://localhost:3000/version1/item/${itemID}`);
 
   let product = await response.json();
-
+  item = itemID;
   generateProductPage(product);
 }
 
@@ -76,3 +77,14 @@ let generateProductPage = (product) => {
     div.appendChild(itemSpecificationContainer);
   }
 };
+
+function addToBasket() {
+  let itemIdNumber = 0;
+  (keys = Object.keys(localStorage)), (i = keys.length);
+  while (i--) {
+    itemIdNumber += 1;
+  }
+  localStorage.setItem(`valgtVare${itemIdNumber}`, item);
+}
+
+
