@@ -6,7 +6,7 @@ router.get('/', function (req, res, next) {
     async function main() {
         // Generate test SMTP service account from ethereal.email
         // Only needed if you don't have a real mail account for testing
-        let testAccount = await nodemailer.createTestAccount();
+        /*let testAccount = await nodemailer.createTestAccount();
       
         // create reusable transporter object using the default SMTP transport
         let sender = nodemailer.createTransport({
@@ -17,25 +17,30 @@ router.get('/', function (req, res, next) {
             user: testAccount.user, // generated ethereal user
             pass: testAccount.pass, // generated ethereal password
           },
-        });
+        });*/
 
-        var transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-    port: 465,
-    secure: true,
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
             auth: {
-              user: 'chil0041@edu.easj.dk',
-              pass: ''
+              user: 'NYWallBuilder@gmail.com',
+              pass: 'cdXpu5LFJsaWTRi',
             }
-          });
+                  });
+
+        let mailOptions = {
+          from: 'NYWallBuilder@gmail.com',
+          to: 'fredrikbille@hotmail.com',
+          subject: 'Hello',
+          text: 'Hello world?',
+        }
       
         // send mail with defined transport object
-        let info = await transporter.sendMail({
-          from: 'chil0041@edu.easj.dk', // sender address
-          to: 'Chilas,<Chil0041@edu.zealand.dk>', // list of receivers
-          subject: "Hello ✔", // Subject line
-          text: "Hello world?", // plain text body
-          html: "<b>Hello world?</b>", // html body
+         transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
         });
       
         console.log("Message sent: %s", info.messageId);
