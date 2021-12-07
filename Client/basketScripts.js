@@ -48,7 +48,7 @@ async function generateCards(response) {
   const title = document.createTextNode('Specifications:');
   specificationTitle.appendChild(title);
 
-  const productPrice = document.createElement('button');
+  const productPrice = document.createElement('p');
   const price = document.createTextNode(`${response.item.price} kr`);
   productPrice.setAttribute('class', 'price');
   productPrice.appendChild(price);

@@ -15,6 +15,10 @@ nav {
   box-shadow: none;
   border: none;
 }
+#searchButton:hover {
+  color: #212529;
+  background-color: rgba(255, 0, 0, 0.404);
+}
 
 #searchDiv {
   display: flex;
@@ -165,11 +169,12 @@ nav {
   color: white;
   background-color: rgba(255, 0, 0, 0.404);
   border: none;
+}
 
 #headBar {
   display: flex;
   width: 100%;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 #basketLogo {
   max-width: 10%;
@@ -178,12 +183,15 @@ nav {
   padding: 5px;
   margin-top: 1%;
   margin-bottom: 0.5%;
+  margin-right: 0px;
 }
 
-#basketAndTextContainer {
-  width: 40%;
+#basketPTag{
+  padding-right: 1.5%;
+}
+
+#BasketAndTextContainer{
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  }
+  align-items: flex-end;
+}

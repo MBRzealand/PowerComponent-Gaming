@@ -15,7 +15,21 @@
   <body>
     
 <div id="navbarContainer">
-  <a class="navbar-brand" href="./Index.html">Power Component-Gaming</a>
+  <div id="headBar">
+    <a class="navbar-brand" href="./Index.html">Power Component-Gaming</a>
+   
+     
+      <div id="BasketAndTextContainer">         
+        <img
+          id="basketLogo"
+          src="../assets/basket_img.png"
+          alt="basket"
+          onclick="goToBasket()"
+        />
+        <p id="basketPTag">Kurv</p>
+      </div>
+    
+    </div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +55,7 @@
       </ul>
       <div class="d-flex">
         <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" id="searchButton" onclick="searchFunction()">Søg</button>
+        <button class="btn btn-primary" id="searchButton" onclick="searchFunction()">Søg</button>
       </div>
     </div>
   </div>

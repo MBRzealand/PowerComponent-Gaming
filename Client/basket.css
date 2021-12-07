@@ -14,6 +14,10 @@ body {
   box-shadow: none;
   border: none;
 }
+#searchButton:hover {
+  color: #212529;
+  background-color: rgba(255, 0, 0, 0.404);
+}
 
 .btnStyling {
   color: white;
@@ -24,11 +28,6 @@ body {
 
 .price {
   text-align: center;
-  background-color: rgba(255, 0, 0, 0.404);
-  text-shadow: 1px 1px 3px #000;
-  color: white;
-  border: solid rgba(119, 0, 0, 0.404);
-  border-radius: 7px;
 }
 
 .basket {
@@ -99,4 +98,69 @@ body {
   font-size: 1.5rem;
   border-radius: 7px;
   padding-bottom: 3px;
+}
+
+/* Navbar CSS */
+#navbarContainer {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.navbar {
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.navbar-nav {
+  display: flex;
+  vertical-align: baseline;
+}
+
+.nav-item {
+  margin-right: 20px;
+  font-size: large;
+  align-self: center;
+}
+
+.navbar-brand {
+  font-size: xx-large;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #fff;
+}
+
+
+#headBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#basketLogo {
+  max-width: 10%;
+  background-color: #212529;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+  margin-right: 0px;
+}
+
+#basketPTag{
+  padding-right: 1.5%;
+}
+
+#BasketAndTextContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
