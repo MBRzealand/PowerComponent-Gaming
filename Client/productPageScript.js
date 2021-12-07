@@ -86,5 +86,3 @@ function addToBasket() {
   }
   localStorage.setItem(`valgtVare${itemIdNumber}`, item);
 }
-
-

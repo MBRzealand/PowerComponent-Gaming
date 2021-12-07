@@ -76,9 +76,8 @@ body {
   max-height: 15vh;
 }
 
-.removeProduct{
+.removeProduct {
   display: inline-block;
-  
   padding-bottom: 5px;
   margin-left: 2%;
   text-align: center;
@@ -86,17 +85,16 @@ body {
   font-size: xx-large;
   background-color: rgba(0, 0, 0, 0);
 }
-.removeProduct:hover{
+.removeProduct:hover {
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0);
 }
 
-#totalPriceLabel{
+#totalPriceLabel {
   font-size: 1.5rem;
 }
-#basketButton{
+#basketButton {
   font-size: 1.5rem;
   border-radius: 7px;
   padding-bottom: 3px;
 }
-
