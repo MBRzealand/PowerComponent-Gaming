@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require("nodemailer");
 const router = express.Router();
+require('dotenv').config();
 
 router.get('/', function (req, res, next) {
     async function main() {
@@ -23,7 +24,7 @@ router.get('/', function (req, res, next) {
             service: 'gmail',
             auth: {
               user: 'NYWallBuilder@gmail.com',
-              pass: 'cdXpu5LFJsaWTRi',
+              pass: process.env.MAIL_PASSWORD,
             }
                   });
 
