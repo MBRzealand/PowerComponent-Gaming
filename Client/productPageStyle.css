@@ -165,4 +165,25 @@ nav {
   color: white;
   background-color: rgba(255, 0, 0, 0.404);
   border: none;
+
+#headBar {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
 }
+#basketLogo {
+  max-width: 10%;
+  background-color: #212529;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+}
+
+#basketAndTextContainer {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  }
