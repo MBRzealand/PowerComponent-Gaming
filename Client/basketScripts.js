@@ -2,6 +2,7 @@ const cardContainer = document.getElementById('cardContainer');
 let listOfItems = [];
 let id = [];
 let listOfItemKeys = [];
+let priceArray = [];
 
 async function start() {
   listOfItems = [];
@@ -11,6 +12,11 @@ async function start() {
   for (let i = 0; i < id.length; i++) {
     await generateCards(await getItems(id[i]));
   }
+
+  let totalPrice = priceArray.reduce((acc, val) => {
+    return acc + val;
+  }, 0);
+  document.getElementById('totalPriceLabel').innerHTML += totalPrice + ' kr';
 }
 
 async function getItems(itemID) {
@@ -21,7 +27,7 @@ async function getItems(itemID) {
 document.onload = start();
 
 function allStorage() {
-  (keys = Object.keys(localStorage)), (i = keys.length);
+  keys = Object.keys(localStorage);
 
   for (let i = 0; i < keys.length; i++) {
     listOfItemKeys.push(localStorage.key(i));
@@ -47,6 +53,19 @@ async function generateCards(response) {
   productPrice.setAttribute('class', 'price');
   productPrice.appendChild(price);
 
+  priceArray.push(parseFloat(response.item.price));
+
+  const removeProduct = document.createElement('button');
+  const removeIcon = document.createTextNode('\u00d7');
+  removeProduct.setAttribute(
+    'class',
+    'btn btn-primary removeProduct btnStyling'
+  );
+  removeProduct.appendChild(removeIcon);
+  removeProduct.addEventListener('click', () => {
+    removeProductFromList(response);
+  });
+
   let picturebox = document.createElement('img');
   picturebox.src = response.item.image;
   picturebox.setAttribute('class', 'productImage');
@@ -63,6 +82,7 @@ async function generateCards(response) {
   innerDivLeft.appendChild(productName);
 
   innerDivRight.appendChild(productPrice);
+  innerDivRight.appendChild(removeProduct);
   productCard.setAttribute('class', 'card');
   productCard.appendChild(innerDivLeft);
 
@@ -73,6 +93,23 @@ async function generateCards(response) {
 let goToProductPage = (itemID) => {
   let url = new URL('http://localhost:5500/Client/productPage.html');
   url.searchParams.append('itemID', itemID);
+  document.location = url;
+};
+
+let removeProductFromList = (response) => {
+  keys = Object.keys(localStorage);
+  let valueArray = [];
+  keys.forEach((element) => {
+    valueArray.push(localStorage.getItem(element));
+  });
+
+  valueArray.forEach((element, i) => {
+    if (response.item._id == element) {
+      localStorage.removeItem(keys[i]);
+    }
+  });
+
+  let url = new URL('http://localhost:5500/Client/basket.html');
   document.location = url;
 };
 

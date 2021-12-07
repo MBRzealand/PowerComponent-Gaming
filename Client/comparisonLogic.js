@@ -84,8 +84,13 @@ let tableGenerator = (listOfItems) => {
 };
 
 function clearLocalStorage() {
-  localStorage.clear();
-  location.href = './comparison.html';
+  listOfItemKeys.forEach((key) => {
+    if (localStorage.getItem(key) != 'valgtVare') {
+      localStorage.removeItem(key);
+    }
+  });
+  let url = new URL('http://localhost:5500/Client/comparison.html');
+  document.location = url;
 }
 
 let goToProductPage = (itemID) => {

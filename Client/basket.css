@@ -76,3 +76,27 @@ body {
 .productImage {
   max-height: 15vh;
 }
+
+.removeProduct{
+  display: inline-block;
+  
+  padding-bottom: 5px;
+  margin-left: 2%;
+  text-align: center;
+  color: #979797;
+  font-size: xx-large;
+  background-color: rgba(0, 0, 0, 0);
+}
+.removeProduct:hover{
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+#totalPriceLabel{
+  font-size: 1.5rem;
+}
+#basketButton{
+  font-size: 1.5rem;
+  border-radius: 7px;
+  padding-bottom: 3px;
+}
