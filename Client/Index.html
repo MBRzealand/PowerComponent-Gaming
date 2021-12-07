@@ -13,28 +13,40 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand"
-          ><h1 class="title">Power Component-Gaming</h1></a
-        >
-        <li class="nav-item">
-          <p class="navbtn" onclick="location.href='./comparison.html'">
-            comparison
-          </p>
+    
+<div id="navbarContainer">
+  <a class="navbar-brand" href="./Index.html">Power Component-Gaming</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            &#9776
+          </a>
+          <ul id="burgerMenu" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Kategorier</a></li>
+            <li><hr class="dropdown-divider"></li>
+          </ul>
         </li>
-        <div id="searchDiv">
-          <input class="" id="searchInput" type="text" />
-          <button
-            class="btn btn-primary"
-            id="searchButton"
-            onclick="searchFunction()"
-          >
-            Search
-          </button>
-        </div>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="./comparison.html">Comparison</a>
+        </li>
+
+      </ul>
+      <div class="d-flex">
+        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" id="searchButton" onclick="searchFunction()">Søg</button>
       </div>
-    </nav>
+    </div>
+  </div>
+</nav>
+</div>
 
     <div class="dropdown">
       <div id="innerDivButton">
@@ -58,6 +70,8 @@
     </div>
 
     <div id="centerContainer" class="container w-70"></div>
+
+    <script src="navbarLogic.js"></script>
     <script src="indexScripts.js"></script>
   </body>
 </html>
