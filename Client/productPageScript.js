@@ -43,14 +43,14 @@ let generateProductPage = (product) => {
   itemImage.src = product.item.image;
   itemImage.setAttribute('class', 'cardImage');
   document.getElementById('productImage').appendChild(itemImage);
-  
+
   // Product content code
-  
+
   productName.innerText = product.item.name;
   if (product.item.description) {
     productDescription.innerText = product.item.description;
   }
-  productPrice.innerText = product.item.price + ",-";
+  productPrice.innerText = product.item.price + ',-';
 
   let itemStorageAmount = product.item.inStorage;
   if (itemStorageAmount < 5) {
@@ -60,8 +60,7 @@ let generateProductPage = (product) => {
   } else {
     productStorageDiv.style.backgroundColor = 'green';
   }
-  productStorage.innerHTML = itemStorageAmount + " stk. på lager";
-
+  productStorage.innerHTML = itemStorageAmount + ' stk. på lager';
 
   // Specification code
 
@@ -71,7 +70,7 @@ let generateProductPage = (product) => {
     let specificationList = displaySpecifications(product.item.specifications);
     let pTag = document.createElement('p');
     pTag.innerHTML = `${specificationList[j]}: ${specificationList[j + 1]}`;
-    
+
     itemSpecificationContainer.appendChild(pTag);
     let div = document.getElementById('specificationDiv');
     div.appendChild(itemSpecificationContainer);

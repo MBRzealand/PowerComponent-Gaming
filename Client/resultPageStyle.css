@@ -131,7 +131,8 @@ nav {
   color: #fff;
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
   color: #fff;
 }
 

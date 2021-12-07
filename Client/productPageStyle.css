@@ -66,7 +66,7 @@ nav {
   padding-left: 10px;
 }
 
-#productName{
+#productName {
   font-size: x-large;
 }
 
@@ -98,7 +98,7 @@ nav {
 }
 
 #btnAddToBasket {
-  background-color:rgba(255, 0, 0, 0.404);
+  background-color: rgba(255, 0, 0, 0.404);
   border: none;
   width: 97%;
   margin: 10px auto 10px auto;
@@ -155,7 +155,8 @@ nav {
   color: #fff;
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
   color: #fff;
 }
 

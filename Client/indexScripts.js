@@ -2,11 +2,9 @@ const searchInput = document.getElementById('searchInput');
 let itemsArray = [];
 let compareID = 0;
 
-
 function start() {
-
   const urlParams = new URLSearchParams(window.location.search);
-  if(urlParams.has('itemsArray')) {
+  if (urlParams.has('itemsArray')) {
     itemsArray = JSON.parse(urlParams.get('itemsArray'));
     console.log(itemsArray);
     createCatalouge(itemsArray);
@@ -17,7 +15,7 @@ function start() {
   console.log(itemsArray);
 }
 
-async function fetchCatalouge () {
+async function fetchCatalouge() {
   let response = await fetch('http://127.0.0.1:3000/version1/item');
 
   let itemsJSON = await response.json();
@@ -25,10 +23,9 @@ async function fetchCatalouge () {
   itemsArray = await itemsJSON.items;
 
   createCatalouge(itemsArray);
-};
+}
 
 function createCatalouge(itemsArray) {
-  
   // Clear HTML container
   const container = document.getElementById('centerContainer');
   while (container.hasChildNodes()) {
@@ -40,7 +37,7 @@ function createCatalouge(itemsArray) {
 
     document.getElementById('centerContainer').appendChild(itemCard(item));
   }
-};
+}
 
 let displaySpecifications = (specificationsObjectArray) => {
   let specificationsArray = [];

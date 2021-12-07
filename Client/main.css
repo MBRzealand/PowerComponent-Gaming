@@ -67,7 +67,6 @@ body {
   width: 60%;
 }
 
-
 /* Navbar CSS */
 #navbarContainer {
   max-width: 60%;
@@ -102,7 +101,8 @@ body {
   color: #fff;
 }
 
-.navbar-brand:hover, .navbar-brand:focus {
+.navbar-brand:hover,
+.navbar-brand:focus {
   color: #fff;
 }
 
