@@ -67,9 +67,9 @@
     </div>
 
     <div id="paymentButtonsContainer">
-        <input class="imageButton" type="image" src="../assets/credit_card_logo.png" />
-        <input class="imageButton" type="image" src="../assets/mobile_pay_logo.png" />
-        <input class="imageButton" type="image" src="../assets/pay_pal_logo.png" />
+        <input id="creditCardImageButton" onclick="displayCreditDetailsForm()" class="imageButton" type="image" src="../assets/credit_card_logo.png" />
+        <input class="imageButton" onclick="redirectToMobilepay()" type="image" src="../assets/mobile_pay_logo.png" />
+        <input class="imageButton" onclick="redirectToPaypal()" type="image" src="../assets/pay_pal_logo.png" />
     </div>
 
     <div id="customerDetailsSeperator" class="seperator">
@@ -83,10 +83,12 @@
                 <p>Vejnavn: </p>
                 <input class="inputField" type="text">
             </div>
-            <div class="alternateInputDiv">
+            <div class="inputDiv">
                 <p>Postnr./By: </p>
-                <input class="inputField" type="number">
-                <input class="inputField" type="text">
+                <div>
+                    <input id="zipCodeInput" class="inputField" type="number">
+                    <input id="cityInput" class="inputField" type="text">
+                </div>
             </div>
             <div class="inputDiv">
                 <p>Land: </p>
@@ -105,15 +107,29 @@
                 <p>Email: </p>
                 <input class="inputField" type="email">
             </div>
-
+            <br/>
+            <div class="inputDiv">
+                <p>Kortnummer: </p>
+                <input id="cardNumberInput" class="inputField" type="number">
+            </div>
+            <div class="inputDiv">
+                <p>Udløbsdato/CVV: </p>
+                <div>
+                    <input id="expiryInput" class="inputField" type="number">
+                    <input id="CVVInput" class="inputField" type="text">
+                </div>
+            </div>
 
         </div>
+        <div id="confirmButtonDiv">
+            <button  class="btn" onclick="">Bekræft</button>
+        </div>
     </div>
-
 </div>
 
 
 <script src="navbarLogic.js"></script>
+<script src="paymentPageScript.js"></script>
 
 </body>
 </html>

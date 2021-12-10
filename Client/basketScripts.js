@@ -127,3 +127,8 @@ let displaySpecifications = (specificationsObjectArray) => {
 
   return specificationsArray;
 };
+
+function goToPaymentPage() {
+  let url = new URL('http://localhost:5500/Client/paymentPage.html');
+  document.location = url;
+}
