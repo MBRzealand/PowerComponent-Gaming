@@ -4,7 +4,6 @@ const textfield = document.getElementById('textField');
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log(emailfield.value);
   if (ValidateEmail(emailfield.value)) {
     mail();
   }
@@ -12,7 +11,6 @@ submitButton.addEventListener('click', (e) => {
 
 async function mail() {
   let data = { email: emailfield.value, text: textfield.value };
-  console.log(data);
 
   let response = await fetch('http://127.0.0.1:3000/version1/sendMail', {
     method: 'PUT',
