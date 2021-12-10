@@ -1,3 +1,6 @@
+let id = [];
+let listOfItemKeys = [];
+
 let displayCreditDetailsForm = () => {
     document.getElementById("customerDetailsSeperator").style.visibility = "visible"
 }
@@ -44,3 +47,33 @@ const popupCenter = ({url, title, w, h}) => {
 
     return newWindow
 }
+
+//Email sending
+function allStorage() {
+    keys = Object.keys(localStorage);
+  
+    for (let i = 0; i < keys.length; i++) {
+      listOfItemKeys.push(localStorage.key(i));
+    }
+    listOfItemKeys.forEach((key) => {
+      if (key.substr(0, 9) == 'valgtVare') {
+        id.push(localStorage.getItem(key));
+      }
+    });
+  }
+
+  async function mail() {
+    allStorage();
+    let data = { customerEmail: document.getElementById("email").value , orderedItems: id };  
+    let response = await fetch('http://127.0.0.1:3000/version1/invoiceMail', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    /*if (response) {
+      let responseJson = await response.json();
+      alert(responseJson.msg);
+    }*/
+  }

@@ -3,6 +3,8 @@ const defaultRoutes = require('./routes/defaultRoute');
 const items = require('./routes/items');
 const search = require('./routes/search');
 const mailRoute = require('./routes/supportMail');
+const invoiceRoute = require('./routes/invoiceMail');
+
 const connectDB = require('./database/connect');
 const cors = require('cors');
 require('dotenv').config();
@@ -13,6 +15,8 @@ app.use('/version1', defaultRoutes);
 app.use('/version1/item', items);
 app.use('/version1/search', search);
 app.use('/version1/sendMail', mailRoute);
+app.use('/version1/invoiceMail', invoiceRoute);
+
 
 const start = async () => {
   try {
