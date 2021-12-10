@@ -5,6 +5,7 @@ require('dotenv').config();
 
 router.put('/', async function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  console.log(req.body)
   let transporter = await nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -24,8 +25,10 @@ router.put('/', async function (req, res, next) {
   await transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log(error);
+      res.status(404).json({msg : "Error in mail server"})
     } else {
       console.log('Email sent: ' + info.response);
+      res.status(200).json({msg : "Mail has been sendt"})
     }
   });
 });

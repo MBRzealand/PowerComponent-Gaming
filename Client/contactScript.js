@@ -4,23 +4,33 @@ const textfield = document.getElementById('textField');
 
 submitButton.addEventListener('click', (e) => {
   e.preventDefault();
-
-  mail();
+  console.log(emailfield.value);
+  if (ValidateEmail(emailfield.value)) {
+    mail();
+  }
 });
 
 async function mail() {
-  let data = await { email: emailfield.value, text: textfield.value };
+  let data = { email: emailfield.value, text: textfield.value };
   console.log(data);
 
   let response = await fetch('http://127.0.0.1:3000/version1/sendMail', {
     method: 'PUT',
     headers: {
-      'Content-type': 'application/json',
+      'Content-Type': 'application/json',
     },
-    body: {
-      email: 'Anders',
-      text: 'Hello chilas from postman',
-    },
+    body: JSON.stringify(data),
   });
-  console.log(response);
+  if (response) {
+    let responseJson = await response.json();
+    alert(responseJson.msg);
+  }
+}
+
+function ValidateEmail(mail) {
+  if (/^\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(mail)) {
+    return true;
+  }
+  alert('You have entered an invalid email address!');
+  return false;
 }

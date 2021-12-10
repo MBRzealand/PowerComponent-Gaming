@@ -7,13 +7,13 @@ const connectDB = require('./database/connect');
 const cors = require('cors');
 require('dotenv').config();
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use('/version1', defaultRoutes);
 app.use('/version1/item', items);
 app.use('/version1/search', search);
 app.use('/version1/sendMail', mailRoute);
-app.use(cors());
+
 const start = async () => {
   try {
     await connectDB(process.env.DB_URL);
