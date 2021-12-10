@@ -9,7 +9,7 @@ router.put('/', async function (req, res, next) {
   let transporter = await nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'NYWallBuilder@gmail.com',
+      user: process.env.MAIL,
       pass: process.env.MAIL_PASSWORD,
     },
   });
