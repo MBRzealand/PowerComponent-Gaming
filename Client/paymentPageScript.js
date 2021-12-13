@@ -64,7 +64,16 @@ function allStorage() {
 
   async function mail() {
     allStorage();
-    let data = { customerEmail: document.getElementById("email").value , orderedItems: id };  
+    let data = { 
+      customerName: document.getElementById("name").value,
+      customerEmail: document.getElementById("email").value,
+      customerAddress: document.getElementById("Address").value,
+      customerZipCodeInput: document.getElementById("zipCodeInput").value,
+      customerCityInput: document.getElementById("cityInput").value,
+      customerCountry: document.getElementById("Countries").value,
+      customerPhoneNmber: document.getElementById("phoneNumber").value,
+      orderedItems: id }; 
+       
     let response = await fetch('http://127.0.0.1:3000/version1/invoiceMail', {
       method: 'POST',
       headers: {

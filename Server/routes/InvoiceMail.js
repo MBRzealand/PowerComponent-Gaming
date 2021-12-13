@@ -46,7 +46,7 @@ let amountArray = [];
         let price = element.price;
         let stk = amountArray[i];
         total += (stk * price);
-        invoiceText = invoiceText.concat(name + " " + price + "kr. Antal: "+ stk + "\n");
+        invoiceText = invoiceText.concat(name + " " + price + "kr. Antal: "+ stk + "<br>");
     });
     invoiceText = invoiceText.concat("Total: " + total);
     return invoiceText;
@@ -68,7 +68,15 @@ router.post('/', async function (req, res, next) {
     from: process.env.MAIL,
     to: req.body.customerEmail,
     subject: 'Faktura for Køb',
-    text: prepInvoice(await items(req.body.orderedItems)),
+    html: 
+    `<h1> Faktureringadresse</h1><h2>` + 
+    req.body.customerName + "<br>" +
+    req.body.customerAddress +"<br>"+
+    req.body.customerZipCodeInput + " " + 
+    req.body.customerCityInput +"<br>"+
+    req.body.customerCountry +"<br>"+
+    req.body.customerPhoneNmber +"</h2><br>"+ 
+    prepInvoice(await items(req.body.orderedItems)) + "kr.",
   };
 
   // send mail with defined transport object
