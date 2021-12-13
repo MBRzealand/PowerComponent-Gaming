@@ -89,6 +89,43 @@ router.post('/', async function (req, res, next) {
       res.status(200).json({msg : "Mail has been sent"})
     }
   });
+  await shipping(transporter,req);
 });
+
+
+const shipping = async (transporter,req) => {
+ 
+  let mailOptions = await {
+    from: process.env.MAIL,
+    to: req.body.customerEmail,
+    subject: 'Order er Sendt',
+    html: 
+    `<h1> Leveringsadresse</h1><h2>` + 
+    req.body.customerName + "<br>" +
+    req.body.customerAddress +"<br>"+
+    req.body.customerZipCodeInput + " " + 
+    req.body.customerCityInput +"<br>"+
+    req.body.customerCountry +"<br>"+
+    req.body.customerPhoneNmber +"<br>"+ 
+    "<br>Følgende varer er blevet sendt </h2>" +
+    prepInvoice(await items(req.body.orderedItems)) + "kr.",
+  };
+
+  // send mail with defined transport object
+  await transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+      res.status(404).json({msg : "Error in mail server"})
+    } else {
+      console.log('Email sent: ' + info.response);
+      res.status(200).json({msg : "Mail has been sent"})
+    }
+  });
+  
+
+   
+}
+
+
 
 module.exports = router;
