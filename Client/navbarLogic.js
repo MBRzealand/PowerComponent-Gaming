@@ -47,6 +47,7 @@ async function fetchCategory(category) {
   let itemsJSON = await response.json();
 
   itemsArray = await itemsJSON.itemListFromCategories;
+  
 
   let url = new URL('http://localhost:5500/Client/Index.html');
   url.searchParams.append('itemsArray', JSON.stringify(itemsArray));
