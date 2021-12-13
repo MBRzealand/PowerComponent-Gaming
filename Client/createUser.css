@@ -19,28 +19,6 @@ body{
     margin-top: 2vh;
 }
 
-.seperator{
-    background-color: #212529;
-    height: 50px;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    font-size: 200%;
-    padding-left: 1%;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-#paymentButtonsContainer{
-    margin-left: 1vw;
-}
-
-.imageButton{
-    width: 13%;
-    border-radius: 5px;
-    margin-right: 2%;
-}
-
 .inputDiv{
     display: flex;
     align-items: center;
