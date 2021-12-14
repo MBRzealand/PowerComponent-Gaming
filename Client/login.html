@@ -11,7 +11,7 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="createUser.css" /> 
+    <link rel="stylesheet" href="login.css" /> 
   </head>
   <body>
     
@@ -80,67 +80,28 @@
     </div>
 
     <div id="pageContainer">
-        <div id="customerDetailsSeperator" class="seperator">
-            <div id="customerDetails">
-                <p>Bruger Oprettelse</p>
+        <div id="loginContainer">
+                <h3 id="loginTitle">Bruger login</h3>
                 <div class="inputDiv">
-                    <p>*Email: </p>
+                    <p>Email: </p>
                     <input class="inputField" type="email" id="email">
                 </div>
                 <div class="inputDiv">
-                    <p>*Password: </p>
+                    <p>Password: </p>
                     <input class="inputField" type="password" id="password">
                 </div>
-                <div class="inputDiv">
-                    <p>Navn: </p>
-                    <input class="inputField" type="text" id="name">
+                <div id="rememberMeContainer">
+                    <input type="checkbox" id="rememberMe">
+                    <label for="rememberMe" id="rememberMeLabel">Husk mig</label>
                 </div>
-                <div class="inputDiv">
-                    <p>Adresse: </p>
-                    <input class="inputField" type="text" id="Address">
+                <div id="buttonsDiv">
+                    <button id="loginButton" class="btn" onclick="loginUser()">Log ind</button>
                 </div>
-                <div class="inputDiv">
-                    <p>Postnr./By: </p>
-                    <div>
-                        <input id="zipCodeInput" class="inputField" type="number">
-                        <input id="cityInput" class="inputField" type="text">
-                    </div>
-                </div>
-                <div class="inputDiv">
-                    <p>Land: </p>
-                    <select class="inputField" name="Countries" id="Countries">
-                        <option value="Undefined">Vælg Land: </option>
-                        <option value="Danmark">Danmark</option>
-                        <option value="Sverige">Sverige</option>
-                        <option value="Norge">Norge</option>
-                        <option value="Tyskland">Tyskland</option>
-                    </select>
-                </div>
-                <div class="inputDiv">
-                    <p>Telefon: </p>
-                    <input class="inputField" type="tel" id="phoneNumber">
-                </div>
-                <br/>
-                <div class="inputDiv">
-                    <p>Kortnummer: </p>
-                    <input id="cardNumberInput" class="inputField" type="number">
-                </div>
-                <div class="inputDiv">
-                    <p>Udløbsdato </p>
-                    <div>
-                        <input id="expiryInput" class="inputField" type="number">  
-                    </div>
-                </div>
-    
+                <p>Hvis du ikke har en konto kan du <a href="./createUser.html">oprette en ny her.</a> </p>
             </div>
-            <div id="confirmButtonDiv">
-                <button  class="btn" onclick="createUser()">Opret Bruger</button>
-            </div>
-        </div>
     </div>
 
-
     <script src="navbarLogic.js"></script>
-    <script src="createUserLogic.js"></script>
+    <script src="loginScript.js"></script>
   </body>
 </html>
