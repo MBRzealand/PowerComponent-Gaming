@@ -7,7 +7,7 @@ router.post('/', async function (req, res, next) {
     console.log(req.body)
     const user = await Userscheme.create(req.body);
     res.status(201).json({
-      user,
+      msg : 'Bruger er blevet oprettet',
     });
   } catch (error) {
     res.status(500).json({

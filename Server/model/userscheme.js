@@ -26,41 +26,33 @@ const UserSchema = new mongoose.Schema({
       type: String,
       lowercase: true,
       trim: true,
-      required: true,
     },
     street: {
       type: String,
       lowercase: true,
       trim: true,
-      required: true,
     },
     city: {
       type: String,
       lowercase: true,
       trim: true,
-      required: true,
     },
     country: {
       type: String,
       lowercase: true,
       trim: true,
-      default: 'Danmark',
     },
   },
   cardInformation: {
     cardNumber: {
-      type: String,
-      required: true,
+      type: String, 
       trim: true,
     },
     cardExpiryDate: {
       type: String,
-      required: true,
-      minlength: 4,
       maxlength: 4,
       trim: true,
     },
-    required: false,
   },
 });
 
