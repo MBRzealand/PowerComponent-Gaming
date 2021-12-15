@@ -6,13 +6,10 @@ function start() {
   const urlParams = new URLSearchParams(window.location.search);
   if (urlParams.has('itemsArray')) {
     itemsArray = JSON.parse(urlParams.get('itemsArray'));
-    console.log(itemsArray);
     createCatalouge(itemsArray);
   } else {
     fetchCatalouge();
-    console.log(itemsArray);
   }
-  console.log(itemsArray);
 }
 
 async function fetchCatalouge() {

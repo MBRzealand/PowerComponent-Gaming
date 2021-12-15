@@ -44,8 +44,6 @@ let displaySpecifications = (specificationsObjectArray) => {
     }
   });
 
-  console.log(specificationsArray);
-
   return specificationsArray;
 };
 
