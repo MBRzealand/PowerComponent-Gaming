@@ -19,7 +19,6 @@ async function loginUser() {
   });
   if (response) {
     let responseJson = await response.json();
-    alert(responseJson.msg);
     if (responseJson.msg == 'Bruger logget ind') {
       if (rememberMeCheckbox.checked) {
         document.cookie = 'username=' + emailfield.value;
@@ -29,6 +28,8 @@ async function loginUser() {
       document.cookie = 'loggedIn=true';
       let url = new URL('http://localhost:5500/Client/Index.html');
       document.location = url;
+    } else {
+      alert(responseJson.msg);
     }
   }
 }
@@ -52,5 +53,6 @@ function checkUsernameCookie() {
   let username = getCookie('username');
   if (username != '') {
     emailfield.value = username;
+    rememberMeCheckbox.checked = true;
   }
 }
