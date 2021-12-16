@@ -72,6 +72,8 @@ let itemCard = (item) => {
   const itemPriceContainer = document.createElement('h5');
   itemPriceContainer.innerHTML = item.price + ',- kr';
 
+  const itemStorageContainerHolder = document.createElement('div');
+  itemStorageContainerHolder.setAttribute('class','itemStorageContainerHolder');
   const itemStorageContainer = document.createElement('div');
   itemStorageContainer.setAttribute('class', 'cardItemStorage');
   let itemStorageAmount = item.inStorage;
@@ -82,6 +84,8 @@ let itemCard = (item) => {
   } else {
     itemStorageContainer.style.backgroundColor = 'green';
   }
+  const itemAmountInStorage = document.createElement('p');
+  itemAmountInStorage.innerHTML = item.inStorage + ' stk. på lager';
 
   const itemAmountSoldContainer = document.createElement('p');
   itemAmountSoldContainer.innerHTML = 'Antal solgt: ' + item.amountSold;
@@ -119,10 +123,12 @@ let itemCard = (item) => {
   productBTN.appendChild(document.createTextNode('Se vare'));
 
   // Card append design
+  itemStorageContainerHolder.appendChild(itemStorageContainer);
+  itemStorageContainerHolder.appendChild(itemAmountInStorage);
   itemImageContainer.appendChild(itemImage);
   itemContainerDiv.appendChild(itemImageContainer);
   itemContainerDiv.appendChild(itemNameContainer);
-  itemContainerDiv.appendChild(itemStorageContainer);
+  itemContainerDiv.appendChild(itemStorageContainerHolder);
   itemContainerDiv.appendChild(itemAmountSoldContainer);
   itemContainerDiv.appendChild(itemSpecificationContainer);
   itemContainerDiv.appendChild(itemPriceContainer);

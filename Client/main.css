@@ -51,8 +51,9 @@ body {
 }
 
 .cardItemStorage {
-  width: 25%;
-  height: 5%;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 .navbtn {
@@ -69,4 +70,14 @@ body {
 
 #innerDivButton {
   width: 60%;
+}
+
+.itemStorageContainerHolder{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.itemStorageContainerHolder > p{
+  margin-left: 10px;
+  margin-top: 14px;
 }
