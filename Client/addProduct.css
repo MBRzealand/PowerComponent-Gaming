@@ -1,0 +1,69 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 60%;
+  background-color: #161616;
+  margin-top: 1%;
+}
+
+#textContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
+}
+
+.mb-3 {
+  min-width: 65%;
+}
+
+#addSpec,
+#addCategorie {
+  height: 4vh;
+  font-size: 15px;
+  min-width: 25%;
+}
+#specFieldDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#categoriesFieldDiv {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-control {
+  color: white;
+  background-color: #212529;
+  height: 4vh;
+  font-size: 20px;
+}
+.form-control:focus {
+  color: white;
+  background-color: #212529;
+}
+
+.specField {
+  margin-left: 20px;
+}
+
+#categories {
+  margin-left: 20px;
+}
+
+#description {
+  min-height: 20vh;
+}
+
+#addProduct{
+  float: right;
+  height: 4vh;
+}
