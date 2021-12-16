@@ -18,17 +18,30 @@
     <div id="navbarContainer">
       <div id="headBar">
         <a class="navbar-brand" href="./Index.html">Power Component-Gaming</a>
-       
-         
-          <div id="BasketAndTextContainer">         
+        
+        <div id="navbarIconsContainer">
+        <div class="iconAndTextContainer">         
+            <img
+              id="userLogo"
+              class="navbarLogo"
+              src="../assets/user_img.png"
+              alt="user"
+              onclick="goToLogin()"
+            />
+            <p id="userPTag" class="iconPTag">Log ind</p>
+        </div>
+
+        <div class="iconAndTextContainer">         
             <img
               id="basketLogo"
+              class="navbarLogo"
               src="../assets/basket_img.png"
               alt="basket"
               onclick="goToBasket()"
             />
-            <p id="basketPTag">Kurv</p>
-          </div>
+            <p class="iconPTag">Kurv</p>
+        </div>
+    </div>
         
         </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

@@ -1,63 +1,58 @@
-body{
-    background-color: #161616;
-    color: white;
+body {
+  background-color: black;
+  color: white;
 }
 
-#pageContainer{
-    margin: auto;
-    width: 60%;
+#pageContainer {
+  margin: auto;
+  width: 60%;
 }
 
-#customerDetails{
-    margin-left: 0.4vw;
+#customerDetails {
+  margin-left: 0.4vw;
 }
 
-#confirmButtonDiv{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 1vw;
-    margin-top: 2vh;
+#confirmButtonDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1vw;
+  margin-top: 2vh;
 }
 
-.inputDiv{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-right: 1vw;
-    margin-bottom:0;
-    font-size: large;
+.inputDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 1vw;
+  margin-bottom: 0;
+  font-size: large;
 }
 
-.inputField{
-    border-radius: 5px;
-    color: white;
-    background-color: #212529;
-    height: 4vh;
-    font-size: 20px;
-    width: 20vw;
-    margin-bottom: 1vh;
+.inputField {
+  border-radius: 5px;
+  color: white;
+  background-color: #212529;
+  height: 4vh;
+  font-size: 20px;
+  width: 20vw;
+  margin-bottom: 1vh;
 }
 
-#zipCodeInput{
-    width: 6vw;
+#zipCodeInput {
+  width: 6vw;
 }
-#cityInput{
-    width: 13.7vw;
+#cityInput {
+  width: 13.7vw;
 }
-
-
-
-
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+input[type='number'] {
+  -moz-appearance: textfield;
 }
-

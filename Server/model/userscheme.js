@@ -45,7 +45,7 @@ const UserSchema = new mongoose.Schema({
   },
   cardInformation: {
     cardNumber: {
-      type: String, 
+      type: String,
       trim: true,
     },
     cardExpiryDate: {

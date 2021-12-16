@@ -1,3 +1,5 @@
+const userPTag = document.getElementById('userPTag');
+
 let searchFunction = () => {
   let search = searchInput.value;
   let url = new URL('http://localhost:5500/Client/resultsPage.html');
@@ -47,7 +49,6 @@ async function fetchCategory(category) {
   let itemsJSON = await response.json();
 
   itemsArray = await itemsJSON.itemListFromCategories;
-  
 
   let url = new URL('http://localhost:5500/Client/Index.html');
   url.searchParams.append('itemsArray', JSON.stringify(itemsArray));
@@ -59,4 +60,38 @@ function goToBasket() {
   document.location = url;
 }
 
+function goToLogin() {
+  if (userPTag.innerHTML == 'Log ud') {
+    document.cookie = 'loggedIn=';
+    let url = new URL('http://localhost:5500/Client/Index.html');
+    document.location = url;
+  } else {
+    let url = new URL('http://localhost:5500/Client/login.html');
+    document.location = url;
+  }
+}
+
 populateCategoryDropdownMenu();
+
+function getCookie(cname) {
+  let name = cname + '=';
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return '';
+}
+
+function checkLoggedInCookie() {
+  let loggedIn = getCookie('loggedIn');
+  if (loggedIn == 'true') {
+    userPTag.innerHTML = 'Log ud';
+  }
+}
+checkLoggedInCookie();
