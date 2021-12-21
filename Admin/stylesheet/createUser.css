@@ -1,0 +1,66 @@
+body {
+  background-color: black;
+  color: white;
+  height: 100vh;
+}
+
+#pageContainer {
+  margin: auto;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#customerDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #161616;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+#confirmButtonDiv {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1vw;
+  margin-top: 2vh;
+}
+
+.inputDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  font-size: large;
+  margin: 40px;
+  width: 90%;
+}
+
+.inputField {
+  border-radius: 5px;
+  color: white;
+  background-color: #212529;
+  height: 4vh;
+  font-size: 20px;
+  width: 20vw;
+  margin-bottom: 1vh;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.btn {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  border: none;
+}

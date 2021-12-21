@@ -1,0 +1,92 @@
+/* Navbar CSS */
+#navbarContainer {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+.navbar {
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.navbar-nav {
+  display: flex;
+  vertical-align: baseline;
+}
+
+.nav-item {
+  margin-right: 20px;
+  font-size: large;
+  align-self: center;
+}
+
+.navbar-brand {
+  font-size: xx-large;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #fff;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #fff;
+}
+
+/* Presets/Defaults */
+.btn {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.404);
+  border: none;
+}
+
+#headBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#navbarIconsContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navbarLogo {
+  width: 45px;
+  background-color: #212529;
+  border-radius: 50%;
+  padding: 5px;
+  margin-top: 1%;
+  margin-bottom: 0.5%;
+  margin-right: 0px;
+  cursor: pointer;
+}
+
+.iconPTag {
+  cursor: pointer;
+}
+
+.iconAndTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+}
+
+#searchButton:hover {
+  color: #212529;
+  background-color: rgba(255, 0, 0, 0.404);
+}
+
+.btn:hover,
+.btn:active,
+.btn:focus {
+  color: #212529;
+  background-color: rgba(255, 0, 0, 0.404);
+  border: none;
+}
