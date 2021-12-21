@@ -6,7 +6,9 @@ router.get('/:searchQuery', async (req, res, next) => {
   try {
     const { searchQuery: itemQuery } = req.params;
 
-    const itemListFromName = await ItemScheme.find({ name: { $regex: new RegExp(itemQuery,"i") }});
+    const itemListFromName = await ItemScheme.find({
+      name: { $regex: new RegExp(itemQuery, 'i') },
+    });
     if (!itemListFromName) {
       return res.status(404).json({
         message: 'Item could not be found',

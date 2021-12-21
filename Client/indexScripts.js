@@ -73,7 +73,10 @@ let itemCard = (item) => {
   itemPriceContainer.innerHTML = item.price + ',- kr';
 
   const itemStorageContainerHolder = document.createElement('div');
-  itemStorageContainerHolder.setAttribute('class','itemStorageContainerHolder');
+  itemStorageContainerHolder.setAttribute(
+    'class',
+    'itemStorageContainerHolder'
+  );
   const itemStorageContainer = document.createElement('div');
   itemStorageContainer.setAttribute('class', 'cardItemStorage');
   let itemStorageAmount = item.inStorage;
