@@ -62,5 +62,11 @@ async function addProduct() {
   if (response) {
     let responseJson = await response.json();
     console.log(responseJson);
+    price.value = "";
+    amount.value = "";
+    nameOfProduct.value = "";
+    description.value = "";
+    catagoriesList = "";
+    specificationList = "";
   }
 }
