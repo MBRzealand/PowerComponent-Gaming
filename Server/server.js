@@ -5,7 +5,7 @@ const search = require('./routes/search');
 const mailRoute = require('./routes/supportMail');
 const invoiceRoute = require('./routes/invoiceMail');
 const userRoute = require('./routes/user');
-const adminRoute = require('./routes/adminRoute')
+const adminRoute = require('./routes/adminRoute');
 
 const connectDB = require('./database/connect');
 const cors = require('cors');
@@ -19,7 +19,7 @@ app.use('/version1/search', search);
 app.use('/version1/sendMail', mailRoute);
 app.use('/version1/invoiceMail', invoiceRoute);
 app.use('/version1/user', userRoute);
-app.use('/version1/admin',adminRoute )
+app.use('/version1/admin', adminRoute);
 
 const start = async () => {
   try {
